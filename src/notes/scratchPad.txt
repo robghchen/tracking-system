@@ -1,0 +1,49 @@
+High Level
+- Phase 1: build job tracking system app with maximal guidance from me
+	- skip non essential information pertinent to the immediate task at hand
+- Phase 2: build a new app as a team with minimal guidance from me
+	- cover material that was intentionally skipped
+- Phase 3: individually build an app 
+	- start applying to jobs
+
+Lesson 0 - Setup
+o install vscode
+o install liveshare
+- install brew (look up windows installation)
+- install node
+- install yarn
+o sign up github
+
+Lesson 1 - Javascript
+- boolean
+- string
+- number
+- array
+- object
+- function
+- helper methods
+
+Lesson 2 - React
+- state
+- props
+- start building the frontend
+- react router
+
+Lesson 2.5 - Typescript
+- enforce Typescript
+
+Lesson 3 - Redux
+- setup 
+- mapStateToProps
+- action, payload
+- reducer
+- mapDispatchToProps
+
+Lesson 4 - Node, Mongodb, Mongoose
+- schema
+- relationships
+- routes
+- start building the backend
+
+Lesson 5 - As it happens
+- async / await
