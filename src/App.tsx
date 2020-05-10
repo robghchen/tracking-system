@@ -4,13 +4,20 @@ import './App.css';
 
 
 // Lesson 1 - Javascript
-// - boolean
-// - string
-// - number
-// - array
-// - object
-// - function
-// - helper methods
+// o boolean
+// o string
+// o number
+// o array
+// o object
+// o function
+// o helper methods
+
+// Practice
+// create a new array called favoriteMovies with 5 movie objects with the keys of title and ranking
+// add the new favoriteMovies array to our info object
+// use the info object to render the titles of your favorite movies (all 5 of them) to chrome browser
+// with the info object's favoriteMovies array, use .forEach and if to only render the titles with a ranking greater 3. only your top two favorite movies should show up in chrome.
+// now use .map instead of .forEach to render your top two favorite movies but change the top ranking movie title to all caps
 
 class App extends React.Component {
 	amy = () => {
@@ -30,6 +37,8 @@ class App extends React.Component {
 			amyOccupation: occupation,
 		}
 		console.log(info)
+
+		return hasCodedBefore
 	}
 
 	wesley = () => {
@@ -51,14 +60,18 @@ class App extends React.Component {
 
 		const infoHasWes = info.hasWesCodedBefore
 		console.log({ infoHasWes })
+
+		return hasCodedBefore
+
 	}
 
-	rob = () => {
+	rob = (hero) => {
 		const hasCodedBefore = true
 		const occupation = 'software eng'
 		const monthsCoded = 12
-		const favoriteCharacters = ['spiderman', 'W']
-		const isIncludesW = favoriteCharacters.includes('000')
+		// const favoriteCharacters = ['spiderman', 'W']
+		// const aaaaaaa = 'a'
+		// const isIncludesW = favoriteCharacters.includes('000')
 		// favoriteCharacters.forEach(character => {
 		// 	// do stuff here
 		// 	console.log(character)
@@ -66,24 +79,60 @@ class App extends React.Component {
 		const info = {
 			hasRobCodedBefore: hasCodedBefore,
 			robsOccupation: occupation,
-
+			favoriteCharacters: [
+				{
+					name: 'spiderman',
+					color: 'red',
+					isCool: false
+				},
+				{
+					name: 'batman',
+					color: 'grey',
+					isCool: false
+				},
+				{
+					name: 'thePenguin',
+					isVillain: true,
+					isCool: true
+				},
+				{
+					name: 'hulk',
+					isVillain: false,
+					realName: 'Bruce Banner',
+					isCool: true
+				},
+				{
+					name: 'drStrange',
+					isVallain: false,
+					isCool: true
+				}
+			],
 		}
 
-		console.log(info.hasRobCodedBefore)
+		const isHeroFound = info.favoriteCharacters.some(character => character.name === hero)
+
+		if (isHeroFound) {
+			return hero
+		} else {
+			return 'Hero not found'
+		}
 	}
 
 	render() {
-		this.amy()
-		this.wesley()
-		this.rob()
+		const hero = 'spiderlady'
+		const villain = 'venom'
+
+		const robFavChars = this.rob(hero) // spiderman
+		console.log('robFavChars:', robFavChars)
+		const robsLeastFavChar = this.rob(villain) // vemon
 
 		return (
 			<div className="App" >
 				<header className="App-header">
 					<img src={logo} className="App-logo" alt="logo" />
 					<p>
-						Edit <code>src/App.tsx</code> and save to reload.
-			</p>
+						{}
+					</p>
 					<a
 						className="App-link"
 						href="https://reactjs.org"

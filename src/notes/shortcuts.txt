@@ -1,0 +1,15 @@
+save
+cmd + s
+
+chrome inspector
+cmd + option + j
+or right click browser and choose inspector
+
+cmd + z
+undo
+
+cmd + shift + z
+redo
+
+cmd + d
+select next item of the same as highlighted

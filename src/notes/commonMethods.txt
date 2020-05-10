@@ -1,0 +1,29 @@
+.forEach 
+ - loops through an array and does stuff till it reaches the end
+
+.map 
+ - loops through an array and changes stuff till it reaches the end
+
+.includes
+ - checks if the array includes what you're asking, returns true or false
+
+.find
+ - loops through an array and returns the first thing where the condition is true
+
+.some
+ - loops through an array and returns true or false based on whether your condition is true
+
+.filter
+ - loops through an array and only returns the elements where the condition is true
+
+&&
+ - represents AND
+
+||
+ - represents OR
+
+const someVariable =
+ - protect yourself from accidently changing the value of something that you don't want to ever change
+
+let anotherVariable =
+ - more flexible, allows you to change the value as many times as you want

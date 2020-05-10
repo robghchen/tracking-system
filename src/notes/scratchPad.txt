@@ -9,19 +9,19 @@ High Level
 Lesson 0 - Setup
 o install vscode
 o install liveshare
-- install brew (look up windows installation)
-- install node
-- install yarn
+o install brew / choco
+o install node
+o install yarn
 o sign up github
 
 Lesson 1 - Javascript
-- boolean
-- string
-- number
-- array
-- object
-- function
-- helper methods
+o boolean
+o string
+o number
+o array
+o object
+o function
+o helper methods
 
 Lesson 2 - React
 - state
