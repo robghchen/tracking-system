@@ -1,5 +1,10 @@
+// for windows, replace cmd with ctrl and it'll work for the most part, otherwise google can help
+
 save
 cmd + s
+
+cut
+cmd + x
 
 chrome inspector
 cmd + option + j
@@ -11,5 +16,17 @@ undo
 cmd + shift + z
 redo
 
-cmd + d
+cmd + d (down)
 select next item of the same as highlighted
+
+cmd + u (up)
+select previous item of the same as highlighted
+
+cmd + k
+skip highlighted
+
+tab
+indents
+
+shift + tab
+unindents

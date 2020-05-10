@@ -23,6 +23,12 @@ o object
 o function
 o helper methods
 
+Skipped 
+- var
+- .sort
+- .slice
+- callback function 
+
 Lesson 2 - React
 - state
 - props

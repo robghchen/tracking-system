@@ -30,8 +30,35 @@ import './App.css';
 // f. Stretch goal!! Refactor your showAllMovies() helper function so that you can use it inside of showTopTwoMovies() instead of doing .map
 // We will start Lesson 2 with the solution to this
 
-// Exercise 2
-// TBD
+// Exercise 2 - Get comfortable with if conditions using && and ||
+// a. Make a new array called petsIWant with 10 objects with the key value pair of 'animal: string', 'isFluffy: boolean', 'isFly: boolean', 'isExtinct: boolean'
+
+// b. Add petsIWant array to aboutMe object
+
+// c. Create a helper method that renders only the pets that are fluffy or can fly
+
+// New info: exclamation mark ! means NOT
+// if (!isFluffy) {
+// this means if false then do something
+// }
+
+// d. Create a helper method that renders only the pets that are not fluffy and cannot fly or is extinct
+// Note: use parenthesis to indicate order of operations, exactly like math (5 + 1) / 2
+
+// e. Create a helper method that renders animals with a length greater than 5 or cannot fly or is fluffy
+
+// Exercise 3 - Put it all together
+// a. Add keys 'wouldWatchAgain: boolean', 'wouldRecommendToGrandma: boolean', and 'animalsInMovie: array[string]' to each recent movie
+// make it up for the animalsInMovie array
+
+// b. Render only the movies that you would watch again or has animals that can fly
+
+// c. Render only the movies that you would recommend to grandma and has animals that are fluffy or ranks in the top two
+
+// d. Render only the pets that are in a movie
+
+// e. Render the pets that are extinct and pets that are in movies that you would not watch again
+
 
 class App extends React.Component {
 	render() {
