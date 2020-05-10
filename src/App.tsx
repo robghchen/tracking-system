@@ -12,135 +12,127 @@ import './App.css';
 // o function
 // o helper methods
 
-// Practice
-// create a new array called favoriteMovies with 5 movie objects with the keys of title and ranking
-// add the new favoriteMovies array to our info object
-// use the info object to render the titles of your favorite movies (all 5 of them) to chrome browser
-// with the info object's favoriteMovies array, use .forEach and if to only render the titles with a ranking greater 3. only your top two favorite movies should show up in chrome.
-// now use .map instead of .forEach to render your top two favorite movies but change the top ranking movie title to all caps
-
 class App extends React.Component {
-	amy = () => {
-		const hasCodedBefore = false // boolean
-		const occupation = 'sales' // string
-		const monthsCoded = 0 // number
-		const favoriteCharacters = ['Astrid', 'Hannabal Lector'] // array
+	getRedCharacters = (info) => {
+		const redCharacters = []
 
-		const isIncludesAstrid = favoriteCharacters.includes('Astrid') // true or false
+		info.favoriteCharacters.forEach(char => {
+			if (char.color === 'red') {
+				redCharacters.push(char.name)
+			}
+		})
 
-		// favoriteCharacters.forEach(character => {
-		// 	console.log(character)
-		// })
-		//console.log('amy', isIncludesAstrid)
-		const info = {
-			hasAmyCodedBefore: hasCodedBefore,
-			amyOccupation: occupation,
-		}
-		console.log(info)
-
-		return hasCodedBefore
+		return redCharacters
 	}
 
-	wesley = () => {
-		const hasCodedBefore = true
-		const occupation = 'unemployed'
-		const monthsCoded = 30
-		const favoriteCharacters = ['W', '7', 'Hello World']
-		const isIncludesW = favoriteCharacters.includes('W')
+	allNotCool = (info) => {
+		const updatedCharacters = info.favoriteCharacters.map(char => {
+			let updatedChar = char
 
-		// favoriteCharacters.forEach(character => {
-		// 	console.log(character)
-		// })
-		//console.log('wesley', isIncludesW)
+			updatedChar.isCool = false;
 
-		const info = {
-			hasWesCodedBefore: hasCodedBefore,
-			wesOccupation: occupation,
-		}
+			return updatedChar
+		})
 
-		const infoHasWes = info.hasWesCodedBefore
-		console.log({ infoHasWes })
-
-		return hasCodedBefore
-
+		return updatedCharacters
 	}
 
-	rob = (hero) => {
-		const hasCodedBefore = true
-		const occupation = 'software eng'
-		const monthsCoded = 12
-		// const favoriteCharacters = ['spiderman', 'W']
-		// const aaaaaaa = 'a'
-		// const isIncludesW = favoriteCharacters.includes('000')
-		// favoriteCharacters.forEach(character => {
-		// 	// do stuff here
-		// 	console.log(character)
-		// })
+	isABruce = (character) => {
+		return character.realName.includes('Bruce')
+	}
+
+	findCharacter = (info, trueOrFalse) => {
+		const character = info.favoriteCharacters.find(char => char.isVillain === trueOrFalse)
+
+		return character
+	}
+
+	isCharacterHere = (info, name) => {
+		return info.favoriteCharacters.some(char => char.name === name)
+	}
+
+	getVillains = (info) => {
+		return info.favoriteCharacters.filter(char => char.isVillain)
+	}
+
+	render() {
 		const info = {
-			hasRobCodedBefore: hasCodedBefore,
-			robsOccupation: occupation,
+			hasCodedBefore: true,
+			occupation: 'software engineer',
 			favoriteCharacters: [
 				{
 					name: 'spiderman',
 					color: 'red',
+					isVillain: false,
+					realName: 'Peter Parker',
 					isCool: false
 				},
 				{
 					name: 'batman',
 					color: 'grey',
+					isVillain: false,
+					realName: 'Bruce Wayne',
 					isCool: false
 				},
 				{
-					name: 'thePenguin',
+					name: 'joker',
+					color: 'purple',
 					isVillain: true,
+					realName: 'Jack Napier',
+					isCool: true
+				},
+				{
+					name: 'thePenguin',
+					color: 'white',
+					isVillain: true,
+					realName: 'idk',
 					isCool: true
 				},
 				{
 					name: 'hulk',
+					color: 'green',
 					isVillain: false,
 					realName: 'Bruce Banner',
 					isCool: true
 				},
 				{
 					name: 'drStrange',
+					color: 'red',
 					isVallain: false,
+					realName: 'Benedict Cumberbatch',
 					isCool: true
 				}
 			],
 		}
 
-		const isHeroFound = info.favoriteCharacters.some(character => character.name === hero)
+		const redCharacters = this.getRedCharacters(info)
+		console.log('redCharacters:', redCharacters)
 
-		if (isHeroFound) {
-			return hero
-		} else {
-			return 'Hero not found'
-		}
-	}
+		const notCool = this.allNotCool(info)
+		console.log('notCool:', notCool)
 
-	render() {
-		const hero = 'spiderlady'
-		const villain = 'venom'
+		const isFirstCharacterBruce = this.isABruce(info.favoriteCharacters[0])
+		console.log('isFirstCharacterBruce:', isFirstCharacterBruce)
 
-		const robFavChars = this.rob(hero) // spiderman
-		console.log('robFavChars:', robFavChars)
-		const robsLeastFavChar = this.rob(villain) // vemon
+		const isSecondCharacterBruce = this.isABruce(info.favoriteCharacters[1])
+		console.log('isSecondCharacterBruce:', isSecondCharacterBruce)
+
+		const findFirstVillain = this.findCharacter(info, true)
+		console.log('findVillain:', findFirstVillain)
+
+		const findFirstNonVillain = this.findCharacter(info, false)
+		console.log('findFirstNonVillain:', findFirstNonVillain)
+
+		const isCharacterHere = this.isCharacterHere(info, 'drStrange')
+		console.log('isCharacterHere:', isCharacterHere)
+
+		const getVillains = this.getVillains(info)
+		console.log('getVillains:', getVillains)
 
 		return (
 			<div className="App" >
 				<header className="App-header">
-					<img src={logo} className="App-logo" alt="logo" />
-					<p>
-						{}
-					</p>
-					<a
-						className="App-link"
-						href="https://reactjs.org"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						Learn React
-			</a>
+					{}
 				</header>
 			</div >
 		);
