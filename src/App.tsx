@@ -13,6 +13,7 @@ import './App.css';
 // o helper methods (it's just another function)
 
 // Exercise 1 - Practice using console.log and debugger religously!
+// The solutions are provided at the bottom of the file if you really need it, it's commented out
 // a. inside render function, create a new array called recentMovies with 5 movie objects each with the keys 'title' and 'ranking', give them values of your choice
 
 // b. create a new object called aboutMe with the key and value of recentMovies array
@@ -43,6 +44,8 @@ class App extends React.Component {
 		);
 	}
 }
+
+// Try your best! Solutions are below
 
 // class App extends React.Component {
 // 	showAllMovies = (aboutMe) => {
