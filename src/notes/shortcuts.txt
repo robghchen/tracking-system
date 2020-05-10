@@ -1,32 +1,41 @@
 // for windows, replace cmd with ctrl and it'll work for the most part, otherwise google can help
 
-save
+- save
 cmd + s
 
-cut
-cmd + x
+- quick copy a line
+cmd + c without highlighting
 
-chrome inspector
+- quick cut a line
+cmd + x without highlighting
+
+- comment or uncomment a section out
+highlight + cmd + /
+
+- chrome inspector
 cmd + option + j
 or right click browser and choose inspector
 
+- undo
 cmd + z
-undo
 
+- redo
 cmd + shift + z
-redo
 
+- select next item of the same as highlighted
 cmd + d (down)
-select next item of the same as highlighted
 
+- select previous item of the same as highlighted
 cmd + u (up)
-select previous item of the same as highlighted
 
+- skip highlighted
 cmd + k
-skip highlighted
 
+- type in select areas simultaneously
+option + click
+
+- indents (make space)
 tab
-indents
 
+- unindents (remove space)
 shift + tab
-unindents
