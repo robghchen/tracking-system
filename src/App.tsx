@@ -12,7 +12,7 @@ import './App.css';
 // o function
 // o helper methods (it's just another function)
 
-// Exercise 1
+// Exercise 1 - Practice using console.log and debugger religously!
 // a. inside render function, create a new array called recentMovies with 5 movie objects each with the keys 'title' and 'ranking', give them values of your choice
 
 // b. create a new object called aboutMe with the key and value of recentMovies array
@@ -37,7 +37,7 @@ class App extends React.Component {
 		return (
 			<div className="App" >
 				<header className="App-header">
-					Call your helper methods here
+					{'Call your helper methods inside the brackets here'}
 				</header>
 			</div >
 		);
