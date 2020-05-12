@@ -1,0 +1,28 @@
+Begin
+1. Drag files into import media section
+2. Create a new sequence
+3. DVCPROHD
+4. 1080i
+5. 1080i60
+
+Audio
+1. Unlink audio
+2. Open in audition
+3. Highlight most quiet piece
+4. shift + p
+5. Check apply all
+6. cmd + shift + p
+7. cmd + s
+
+Editting
+- cut in place
+cmd + k
+- speed up
+shift + l
+
+Export media
+1. cmd + m
+2. Format: H264
+3. Preset: Match Source - High bitrate
+4. Output name
+5. Export
