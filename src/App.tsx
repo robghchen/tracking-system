@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 
@@ -10,7 +9,7 @@ import './App.css';
 // o array
 // o object
 // o function
-// o helper methods
+// o helper methods (it's just another function)
 
 class App extends React.Component {
 	getRedCharacters = (info) => {
@@ -132,7 +131,7 @@ class App extends React.Component {
 		return (
 			<div className="App" >
 				<header className="App-header">
-					{}
+					Right click in browser to inspect or cmd + option + j
 				</header>
 			</div >
 		);

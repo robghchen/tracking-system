@@ -7,6 +7,9 @@
 .map 
  - loops through an array and changes stuff till it reaches the end
 
+.push
+ - adds to the end of an array
+ 
 .includes
  - checks if the array includes what you're asking, returns true or false
 
