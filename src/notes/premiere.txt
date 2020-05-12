@@ -10,9 +10,10 @@ Audio
 2. Open in audition
 3. Highlight most quiet piece
 4. shift + p
-5. Check apply all
-6. cmd + shift + p
-7. cmd + s
+5. cmd + shift + p
+6. Select Entire File
+7. Apply
+8. cmd + s
 
 Editting
 - cut in place
