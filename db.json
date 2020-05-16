@@ -1,0 +1,96 @@
+{
+	"users": [
+		{
+			"email": "wesley@gmail.com",
+			"jobs": [
+				{
+					"title": "software engineer",
+					"salary": 150000,
+					"location": "new york",
+					"description": "a bunch of stuff"
+				},
+				{
+					"title": "software engineer",
+					"salary": 150000,
+					"location": "new york",
+					"description": "a bunch of stuff"
+				},
+				{
+					"title": "software engineer",
+					"salary": 150000,
+					"location": "new york",
+					"description": "a bunch of stuff"
+				}
+			]
+		},
+		{
+			"email": "amy@gmail.com",
+			"jobs": [
+				{
+					"title": "software engineer",
+					"salary": 150000,
+					"location": "new york",
+					"description": "a bunch of stuff"
+				},
+				{
+					"title": "software engineer",
+					"salary": 150000,
+					"location": "new york",
+					"description": "a bunch of stuff"
+				},
+				{
+					"title": "software engineer",
+					"salary": 150000,
+					"location": "new york",
+					"description": "a bunch of stuff"
+				}
+			]
+		},
+		{
+			"email": "kj@gmail.com",
+			"jobs": [
+				{
+					"title": "software engineer",
+					"salary": 150000,
+					"location": "new york",
+					"description": "a bunch of stuff"
+				},
+				{
+					"title": "software engineer",
+					"salary": 150000,
+					"location": "new york",
+					"description": "a bunch of stuff"
+				},
+				{
+					"title": "software engineer",
+					"salary": 150000,
+					"location": "new york",
+					"description": "a bunch of stuff"
+				}
+			]
+		},
+		{
+			"email": "rob@gmail.com",
+			"jobs": [
+				{
+					"title": "software engineer",
+					"salary": 150000,
+					"location": "new york",
+					"description": "a bunch of stuff"
+				},
+				{
+					"title": "software engineer",
+					"salary": 150000,
+					"location": "new york",
+					"description": "a bunch of stuff"
+				},
+				{
+					"title": "software engineer",
+					"salary": 150000,
+					"location": "new york",
+					"description": "a bunch of stuff"
+				}
+			]
+		}
+	]
+}
