@@ -28,15 +28,20 @@ Skipped
 - .sort
 - .slice
 - callback function 
+- npm vs yarn
 
 Lesson 2 - React
+- JSON server
+- async / await
 - state
 - props
-- start building the frontend
+- component life cycle
 - react router
+- start building the frontend
 
-Lesson 2.5 - Typescript
+Lesson 2.5 - Stability
 - enforce Typescript
+- unit testing
 
 Lesson 3 - Redux
 - setup 
@@ -52,4 +57,3 @@ Lesson 4 - Node, Mongodb, Mongoose
 - start building the backend
 
 Lesson 5 - As it happens
-- async / await
