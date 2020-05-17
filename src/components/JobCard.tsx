@@ -12,10 +12,10 @@ class JobCard extends React.Component<JobCardProps, null> {
 
 		return <div className="job-card" onClick={() => handleClick(job)}>
 			<h3>{job.companyName}</h3>
-			<p>{job.rating}<span role="img" aria-label='star'>⭐️</span></p>
+			<p>Glassdoor: {job.rating}<span role="img" aria-label='star'>⭐️</span></p>
 			<p>${job.salary}</p>
 			<br />
-			<p>{job.status}</p>
+			<p>Status: {job.status}</p>
 		</div>
 	}
 }

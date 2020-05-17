@@ -13,13 +13,13 @@ class JobRow extends React.Component<JobRowProps, null> {
 		return <div className="job-card">
 			{/* // would become the clicked job card's variables from data */}
 			<h3>{job.companyName}</h3>
-			<p>{job.rating}<span role="img" aria-label="star">⭐️</span></p>
+			<p>Glassdoor: {job.rating}<span role="img" aria-label="star">⭐️</span></p>
 			<p>${job.salary}</p>
-			<p>{job.companySize}<span role="img" aria-label="people">👨‍👩‍👧‍👦</span></p>
-			<p>{job.industry}</p>
-			<p>{job.status}</p>
+			<p>Company Size: {job.companySize}<span role="img" aria-label="people">👨‍👩‍👧‍👦</span></p>
+			<p>Industry: {job.industry}</p>
+			<p>Status: {job.status}</p>
 			<br />
-			<p>{job.description}</p>
+			<p>Description: {job.description}</p>
 
 		</div>
 	}
