@@ -4,91 +4,52 @@
 			"email": "wesley@gmail.com",
 			"jobs": [
 				{
-					"title": "software engineer",
+					"id": 1,
+					"title": "frontend engineer",
 					"salary": 150000,
+					"rating": 4,
 					"location": "new york",
-					"description": "a bunch of stuff"
+					"description": "a bunch of stuff",
+					"companyName": "Google",
+					"companySize": 46980,
+					"industry": "Tech",
+					"status": "in person interview"
 				},
 				{
-					"title": "software engineer",
-					"salary": 150000,
-					"location": "new york",
-					"description": "a bunch of stuff"
+					"id": 2,
+					"title": "backend engineer",
+					"salary": 120000,
+					"rating": 5,
+					"location": "new jersey",
+					"description": "a bunch of stuffs",
+					"companyName": "Sysco",
+					"companySize": 15550,
+					"industry": "food",
+					"status": "phone interview"
 				},
 				{
-					"title": "software engineer",
-					"salary": 150000,
-					"location": "new york",
-					"description": "a bunch of stuff"
-				}
-			]
-		},
-		{
-			"email": "amy@gmail.com",
-			"jobs": [
-				{
-					"title": "software engineer",
-					"salary": 150000,
-					"location": "new york",
-					"description": "a bunch of stuff"
+					"id": 3,
+					"title": "frontend engineer",
+					"salary": 170000,
+					"rating": 2,
+					"location": "philadelphia",
+					"description": "a bunch of stuff",
+					"companyName": "Walmart",
+					"companySize": 50000,
+					"industry": "retail",
+					"status": "offer"
 				},
 				{
-					"title": "software engineer",
-					"salary": 150000,
-					"location": "new york",
-					"description": "a bunch of stuff"
-				},
-				{
-					"title": "software engineer",
-					"salary": 150000,
-					"location": "new york",
-					"description": "a bunch of stuff"
-				}
-			]
-		},
-		{
-			"email": "kj@gmail.com",
-			"jobs": [
-				{
-					"title": "software engineer",
-					"salary": 150000,
-					"location": "new york",
-					"description": "a bunch of stuff"
-				},
-				{
-					"title": "software engineer",
-					"salary": 150000,
-					"location": "new york",
-					"description": "a bunch of stuff"
-				},
-				{
-					"title": "software engineer",
-					"salary": 150000,
-					"location": "new york",
-					"description": "a bunch of stuff"
-				}
-			]
-		},
-		{
-			"email": "rob@gmail.com",
-			"jobs": [
-				{
-					"title": "software engineer",
-					"salary": 150000,
-					"location": "new york",
-					"description": "a bunch of stuff"
-				},
-				{
-					"title": "software engineer",
-					"salary": 150000,
-					"location": "new york",
-					"description": "a bunch of stuff"
-				},
-				{
-					"title": "software engineer",
-					"salary": 150000,
-					"location": "new york",
-					"description": "a bunch of stuff"
+					"id": 4,
+					"title": "backend engineer",
+					"salary": 180000,
+					"rating": 3,
+					"location": "california",
+					"description": "a bunch of stuff",
+					"companyName": "Ray Bans",
+					"companySize": 15585,
+					"industry": "Glasses",
+					"status": "offer"
 				}
 			]
 		}

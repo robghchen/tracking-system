@@ -25,22 +25,24 @@ o helper methods
 
 Skipped 
 - var
-- .sort
+o .sort
 - .slice
 - callback function 
-- npm vs yarn
+o npm vs yarn
 
 Lesson 2 - React
-- JSON server
+o JSON server
+o state
+o props
+o component life cycle
+o start building the frontend
+
+Skipped 
 - async / await
-- state
-- props
-- component life cycle
-- react router
-- start building the frontend
 
 Lesson 2.5 - Stability
 - enforce Typescript
+- react router
 - unit testing
 
 Lesson 3 - Redux
