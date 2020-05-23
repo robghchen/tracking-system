@@ -1,138 +1,71 @@
 import React from 'react';
 import './App.css';
+import axios from 'axios';
+import JobContainer from './containers/JobContainer'
 
+// Lesson 2 - React
+// o JSON server mock databse // the command to run the mock database is in commands.txt file inside of the notes folder
+// o state
+// o props
+// o component life cycle
+// o start building the frontend
 
-// Lesson 1 - Javascript
-// o boolean
-// o string
-// o number
-// o array
-// o object
-// o function
-// o helper methods (it's just another function)
+// Assignment
+// 1. When clicking a row, toggle that row back into a card
+// 2. Do the flexboxfroggy.com tutorial, then get the sort buttons to show above the job cards
+// 3. When clicking the hamburger icon, toggle all cards to become rows
+// 4. When clicking the 4 squares icon, toggle all rows to become cards
+// 5. Filter jobs rendered by Job Title
 
 class App extends React.Component {
-	getRedCharacters = (info) => {
-		const redCharacters = []
-
-		info.favoriteCharacters.forEach(char => {
-			if (char.color === 'red') {
-				redCharacters.push(char.name)
-			}
-		})
-
-		return redCharacters
+	state = {
+		users: [],
 	}
 
-	allNotCool = (info) => {
-		const updatedCharacters = info.favoriteCharacters.map(char => {
-			let updatedChar = char
+	async componentDidMount() {
+		try {
+			// a good place to make network requests to get information
+			// console.log('componentDidMount')
+			const response = await axios.get('http://localhost:3001/users') // axios to get backend local host 3001/users
 
-			updatedChar.isCool = false;
-
-			return updatedChar
-		})
-
-		return updatedCharacters
+			this.setState({ users: response.data }) // update the state in this file
+		} catch (error) {
+			console.log(error)
+		}
 	}
 
-	isABruce = (character) => {
-		return character.realName.includes('Bruce')
-	}
+	// two other common component life cycle methods:
 
-	findCharacter = (info, trueOrFalse) => {
-		const character = info.favoriteCharacters.find(char => char.isVillain === trueOrFalse)
+	// componentDidUpdate(prevProps, prevState) { 
+	// // if our props or state changes, then this function will get called. we'll use this when the need for it comes up, for now just know that it exists
+	// 	console.log("componentDidUpdate")
+	// 	console.log('prevState:', prevState)
+	// 	console.log('currentState:', this.state)
+	// }
 
-		return character
-	}
-
-	isCharacterHere = (info, name) => {
-		return info.favoriteCharacters.some(char => char.name === name)
-	}
-
-	getVillains = (info) => {
-		return info.favoriteCharacters.filter(char => char.isVillain)
-	}
+	// componentWillUnmount() { 
+	// // reset to default state when we're done with this component (as in the user goes to a different page)
+	// 	console.log('componentWillUnmount')
+	// 	this.setState({
+	// 		users: []
+	// 	})
+	// }
 
 	render() {
-		const info = {
-			hasCodedBefore: true,
-			occupation: 'software engineer',
-			favoriteCharacters: [
-				{
-					name: 'spiderman',
-					color: 'red',
-					isVillain: false,
-					realName: 'Peter Parker',
-					isCool: false
-				},
-				{
-					name: 'batman',
-					color: 'grey',
-					isVillain: false,
-					realName: 'Bruce Wayne',
-					isCool: false
-				},
-				{
-					name: 'joker',
-					color: 'purple',
-					isVillain: true,
-					realName: 'Jack Napier',
-					isCool: true
-				},
-				{
-					name: 'thePenguin',
-					color: 'white',
-					isVillain: true,
-					realName: 'idk',
-					isCool: true
-				},
-				{
-					name: 'hulk',
-					color: 'green',
-					isVillain: false,
-					realName: 'Bruce Banner',
-					isCool: true
-				},
-				{
-					name: 'drStrange',
-					color: 'red',
-					isVallain: false,
-					realName: 'Benedict Cumberbatch',
-					isCool: true
-				}
-			],
+		// anytime we update state with setState(), that will trigger a rerender
+		// console.log('render')
+		const { users } = this.state // destructure users from our state which came from our network request to our backend database
+
+		if (users.length === 0) { // remember to handle edge case where data is not available yet to prevent app from crashing
+			return null;
 		}
 
-		const redCharacters = this.getRedCharacters(info)
-		console.log('redCharacters:', redCharacters)
-
-		const notCool = this.allNotCool(info)
-		console.log('notCool:', notCool)
-
-		const isFirstCharacterBruce = this.isABruce(info.favoriteCharacters[0])
-		console.log('isFirstCharacterBruce:', isFirstCharacterBruce)
-
-		const isSecondCharacterBruce = this.isABruce(info.favoriteCharacters[1])
-		console.log('isSecondCharacterBruce:', isSecondCharacterBruce)
-
-		const findFirstVillain = this.findCharacter(info, true)
-		console.log('findVillain:', findFirstVillain)
-
-		const findFirstNonVillain = this.findCharacter(info, false)
-		console.log('findFirstNonVillain:', findFirstNonVillain)
-
-		const isCharacterHere = this.isCharacterHere(info, 'drStrange')
-		console.log('isCharacterHere:', isCharacterHere)
-
-		const getVillains = this.getVillains(info)
-		console.log('getVillains:', getVillains)
+		const wesley = users[0] // for now, we can hard code the first user, but when we have a real database we'll have to find the user with their login credentials, probably by the user's email
 
 		return (
 			<div className="App" >
-				<header className="App-header">
-					Right click in browser to inspect or cmd + option + j
-				</header>
+				<JobContainer jobs={wesley.jobs} />
+				{/* pass jobs as a prop to other file */}
 			</div >
 		);
 	}

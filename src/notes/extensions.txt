@@ -1,0 +1,10 @@
+Prettier - Code formatter by Esben Petersen
+
+ESLint by Dirk Baeumer
+
+Live Share by Microsoft
+https://docs.microsoft.com/en-us/visualstudio/liveshare/use/vscode#following
+
+Wrap Console Log by midnightsyntax
+
+GitLens -- Git supercharged by Eric Amodio
