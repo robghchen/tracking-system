@@ -10,7 +10,7 @@ class JobRow extends React.Component<JobRowProps, null> {
 		//we'll need this to render the clicked button from job card here
 		const { job } = this.props
 
-		return <div className="job-card">
+		return <div className="job-row">
 			{/* // would become the clicked job card's variables from data */}
 			<h3>{job.companyName}</h3>
 			<p>Glassdoor: {job.rating}<span role="img" aria-label="star">⭐️</span></p>

@@ -1,2 +1,26 @@
 Run mock db
 npx json-server --watch db.json --port 3001
+
+Get all the latest branches up to date from github
+git fetch
+
+Switch to a different branch
+git checkout <branch name>
+
+Resolve merge conflicts between code from remote (github) and local (your computer)
+git merge <branch name>
+
+Get the latest code from github from the branch you're currently on
+git pull
+
+Stage the code that you've updated, this excludes new files
+git add -u
+
+Stage all
+git add .
+
+Save the stuff that you staged
+git commit -m "feat(topic): message"
+
+Send the stuff that you saved to github
+git push
