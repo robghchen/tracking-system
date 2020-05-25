@@ -8,3 +8,5 @@ https://docs.microsoft.com/en-us/visualstudio/liveshare/use/vscode#following
 Wrap Console Log by midnightsyntax
 
 GitLens -- Git supercharged by Eric Amodio
+
+Drawio by Henning Dieterichs

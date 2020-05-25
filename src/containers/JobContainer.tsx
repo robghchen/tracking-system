@@ -48,12 +48,65 @@ class JobContainer extends React.Component<JobContainerProps, JobContainerState>
 		}
 	}
 
-	handleClick = (job) => {
+	handleClickJobRow = (job) => {
+		const { jobsClicked } = this.state;
+
+		const updatedJobsClicked = [...jobsClicked].filter(jobId => { // [1, 2]
+			if (job.id === jobId) {
+				return false
+			}
+			return true
+		})
+		this.setState({jobsClicked: updatedJobsClicked})
+	}
+
+	handleClickJobCard = (job) => {
 		// adding the id of the job that was clicked to our state so that we know what to render
 		const { jobsClicked } = this.state
 		const updatedJobsClicked = [...jobsClicked, job.id]
 		this.setState({ jobsClicked: updatedJobsClicked })
 	}
+
+	handleClickHamburger = () => {
+		const { jobs } = this.props
+
+		const jobsIds = jobs.map(job => {
+			return job.id
+		})
+		console.log('jobsIds:', jobsIds)
+
+		this.setState({jobsClicked: jobsIds})
+	}
+	
+	handleClickReverseHamburger = () => {
+		const jobsIds = []
+		console.log('jobsIds:', jobsIds)
+
+		this.setState({jobsClicked: jobsIds})
+	}
+
+	toggleClick = (isHamburger) => {
+		if (isHamburger === true) {
+			const { jobs } = this.props
+
+			const jobsIds = jobs.map(job => {
+				return job.id
+			})
+			console.log('jobsIds:', jobsIds)
+	
+			this.setState({jobsClicked: jobsIds})
+		} else {
+			const jobsIds = []
+		console.log('jobsIds:', jobsIds)
+
+		this.setState({jobsClicked: jobsIds})
+		}
+	}
+
+	// General Guidelines for clean code
+	// one source truth
+	// DRY (don't repeat yourself)
+	// separation of concerns
 
 	render() {
 		const { jobs } = this.props
@@ -93,21 +146,27 @@ class JobContainer extends React.Component<JobContainerProps, JobContainerState>
 		}
 
 		return (
-			<div className={'job-container'}>
-				{/* we have to use onClick to tag our buttons with the functions that we created */}
-				<button onClick={() => this.toggleSort('salary')}>Salary</button>
-				<button onClick={() => this.toggleSort('rating')}>Best Rated</button>
-				<button onClick={() => this.toggleSort('location')}>Location</button>
-				<button onClick={() => this.toggleSort('recent')}>Recent</button>
-				{jobsToRender.map(job => {
-					// earlier we were keeping track of what jobs were clicked by updating our state with the id of the jobs that were clicked
-					// if the job in this loop exists in our jobsClicked array, then we want to show the JobRow instead of the JobCard
-					if (jobsClicked.includes(job.id) === true) {
-						return <JobRow job={job} />
-					}
-					return <JobCard job={job} handleClick={this.handleClick} />
-				})}
+			<div> 
+				<button onClick={() => this.toggleClick(true)}>hamburger icon</button>
+				<button onClick={() => this.toggleClick(false)}>reverseHam</button>
+				<div className={'job-container'}>
+					{/* we have to use onClick to tag our buttons with the functions that we created */}
+					<button onClick={() => this.toggleSort('salary')}>Salary</button>
+					<button onClick={() => this.toggleSort('rating')}>Best Rated</button>
+					<button onClick={() => this.toggleSort('location')}>Location</button>
+					<button onClick={() => this.toggleSort('recent')}>Recent</button>
+					{jobsToRender.map(job => {
+						// earlier we were keeping track of what jobs were clicked by updating our state with the id of the jobs that were clicked
+						// if the job in this loop exists in our jobsClicked array, then we want to show the JobRow instead of the JobCard
+						if (jobsClicked.includes(job.id) === true) {
+							return <JobRow job={job} handleClickJobRow={this.handleClickJobRow} />
+						}
+						return <JobCard job={job} handleClickJobCard={this.handleClickJobCard} />
+					})}
+
+				</div>
 			</div>
+			
 		)
 	}
 }

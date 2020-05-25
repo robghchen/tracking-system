@@ -17,6 +17,10 @@ import JobContainer from './containers/JobContainer'
 // 4. When clicking the 4 squares icon, toggle all rows to become cards
 // 5. Filter jobs rendered by Job Title
 
+// Lesson 2.1 - More React 
+// 	- tournament challenge	
+// 	- semantic UI
+
 class App extends React.Component {
 	state = {
 		users: [],

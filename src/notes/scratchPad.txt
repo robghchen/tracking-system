@@ -1,61 +1,88 @@
 High Level
 - Phase 1: build job tracking system app with maximal guidance from me
-	- skip non essential information pertinent to the immediate task at hand
+	- skip non essential information
 - Phase 2: build a new app as a team with minimal guidance from me
 	- cover material that was intentionally skipped
 - Phase 3: individually build an app 
 	- start applying to jobs
 
 Lesson 0 - Setup
-o install vscode
-o install liveshare
-o install brew / choco
-o install node
-o install yarn
-o sign up github
+	o install vscode
+	o install liveshare
+	o install brew / choco
+	o install node
+	o install yarn
+	o sign up github
 
 Lesson 1 - Javascript
-o boolean
-o string
-o number
-o array
-o object
-o function
-o helper methods
+	o boolean
+	o string
+	o number
+	o array
+	o object
+	o function
+	o helper methods
 
-Skipped 
-- var
-o .sort
-- .slice
-- callback function 
-o npm vs yarn
+	Skipped 
+	- var
+	o .sort
+	- .slice
+	- callback function 
+	o npm vs yarn
+
+	Homework - Click "Go to the first lesson"
+	Basic JavaScript https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/
+	ES6 https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/es6/
+	Basic Data Structures https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-data-structures/
 
 Lesson 2 - React
-o JSON server
-o state
-o props
-o component life cycle
-o start building the frontend
+	o JSON server
+	o state
+	o props
+	o component life cycle
+	o start building the frontend
 
-Skipped 
-- async / await
+	Skipped 
+	- async / await
+
+	Homework
+	React https://www.freecodecamp.org/learn/front-end-libraries/react/
+
+Lesson 2.1 - More React 
+	- tournament challenge	
+	- semantic UI
+
+	Homework
+	Debugging https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/debugging/
 
 Lesson 2.5 - Stability
-- enforce Typescript
-- react router
-- unit testing
+	- enforce Typescript
+	- react router
+	- unit testing
 
 Lesson 3 - Redux
-- setup 
-- mapStateToProps
-- action, payload
-- reducer
-- mapDispatchToProps
+	- setup 
+	- mapStateToProps
+	- action, payload
+	- reducer
+	- mapDispatchToProps
+
+	Homework
+	Redux https://www.freecodecamp.org/learn/front-end-libraries/redux/
+	React and Redux https://www.freecodecamp.org/learn/front-end-libraries/react-and-redux/
 
 Lesson 4 - Node, Mongodb, Mongoose
-- schema
-- relationships
-- routes
-- start building the backend
+	- schema
+	- relationships
+	- routes
+	- start building the backend
+
+	Homework 
+	Basic Node and Express https://www.freecodecamp.org/learn/apis-and-microservices/managing-packages-with-npm/
+	MongoDB and Mongoose https://www.freecodecamp.org/learn/apis-and-microservices/mongodb-and-mongoose/
 
 Lesson 5 - As it happens
+	- 
+
+After Phase 3
+	- Coding Interview Prep (Thousands of hours of challenges) https://www.freecodecamp.org/learn/
