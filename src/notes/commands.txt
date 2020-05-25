@@ -1,5 +1,11 @@
-Run mock db
+Install packages
+yarn
+
+Run backend mock db
 npx json-server --watch db.json --port 3001
+
+Run frontend
+yarn start
 
 Get all the latest branches up to date from github
 git fetch
