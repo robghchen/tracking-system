@@ -24,7 +24,7 @@ class App extends React.Component {
 	}
 
 	render() {
-		 const { teams } = this.state // destructure users from our state which came from our network request to our backend database
+		const { teams } = this.state // destructure users from our state which came from our network request to our backend database
 
 		if (teams.length === 0) { // remember to handle edge case where data is not available yet to prevent app from crashing
 			return null;
@@ -32,7 +32,7 @@ class App extends React.Component {
 
 		return (
 			<div className="App" >
-				{ <TeamContainer roundOne={teams} /> }
+				{<TeamContainer roundOne={teams} />}
 				{/* pass teams as a prop to other file */}
 			</div >
 		)
