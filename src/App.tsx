@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import axios from 'axios';
-import JobContainer from './containers/JobContainer'
+import TeamContainer from './containers/TeamContainer'
 
 // Lesson 2 - React
 // o JSON server mock databse // the command to run the mock database is in commands.txt file inside of the notes folder
@@ -23,18 +23,19 @@ import JobContainer from './containers/JobContainer'
 
 class App extends React.Component {
 	state = {
-		users: [],
+		teams: [],
 	}
 
 	async componentDidMount() {
 		try {
 			// a good place to make network requests to get information
 			// console.log('componentDidMount')
-			const response = await axios.get('http://localhost:3001/users') // axios to get backend local host 3001/users
+			const response = await axios.get('http://localhost:3001/teams') // axios to get backend local host 3001/users
 
-			this.setState({ users: response.data }) // update the state in this file
+			this.setState({ teams: response.data }) // update the state in this file
 		} catch (error) {
 			console.log(error)
+
 		}
 	}
 
@@ -58,20 +59,20 @@ class App extends React.Component {
 	render() {
 		// anytime we update state with setState(), that will trigger a rerender
 		// console.log('render')
-		const { users } = this.state // destructure users from our state which came from our network request to our backend database
+		 const { teams } = this.state // destructure users from our state which came from our network request to our backend database
 
-		if (users.length === 0) { // remember to handle edge case where data is not available yet to prevent app from crashing
+		if (teams.length === 0) { // remember to handle edge case where data is not available yet to prevent app from crashing
+			// console.log("teams.length" , teams.length)
 			return null;
 		}
 
-		const wesley = users[0] // for now, we can hard code the first user, but when we have a real database we'll have to find the user with their login credentials, probably by the user's email
-
+		 // for now, we can hard code the first user, but when we have a real database we'll have to find the user with their login credentials, probably by the user's email
 		return (
 			<div className="App" >
-				<JobContainer jobs={wesley.jobs} />
+				{ <TeamContainer roundOne={teams} /> }
 				{/* pass jobs as a prop to other file */}
 			</div >
-		);
+		)
 	}
 }
 
