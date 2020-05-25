@@ -11,6 +11,7 @@ interface TeamContainerState {
 	roundTwo: any,
 	roundThree: any,
 	currentRound: number, 
+	winner: any,
 	[x: string]: any
 }
 
@@ -19,6 +20,7 @@ class TeamContainer extends React.Component<TeamContainerProps, TeamContainerSta
 		  roundOne: [],
 		  roundTwo: [],
 		  roundThree: [],
+		  winner: [],
 		  currentRound: 1
 	}
 
@@ -32,7 +34,7 @@ class TeamContainer extends React.Component<TeamContainerProps, TeamContainerSta
 	// separation of concerns
 
 	handleClickPoint = (teamID, subAdd) => {
-		const { roundOne, roundTwo, } = this.state
+		const { roundOne, roundTwo, roundThree } = this.state
 		let {currentRound} = this.state
 		let roundDesignation = []
 		let roundKey = ''
@@ -45,10 +47,11 @@ class TeamContainer extends React.Component<TeamContainerProps, TeamContainerSta
 			roundKey = 'roundTwo'
 			roundDesignation = roundTwo
 		}
-		// if(currentRound === 3){
-		//  roundKey = 'roundThree'
-		// 	roundDesignation = roundThree
-		// }
+		if(currentRound === 3){
+			roundKey= 'roundThree'
+			roundDesignation = roundThree
+		}
+		
 
 		const updatedteamsClicked = [...roundDesignation].map(team => {
 			let updatedPoint = team.points
@@ -88,6 +91,11 @@ class TeamContainer extends React.Component<TeamContainerProps, TeamContainerSta
 		if(currentRound === 2){
 			roundKey = 'roundThree'
 			roundDesignation = roundTwo
+		}
+
+		if(currentRound === 3){
+			roundKey = 'winner'
+			roundDesignation = roundThree
 		}
 	
 		const winnerSec = [...roundDesignation].filter(team=>{
@@ -143,7 +151,7 @@ class TeamContainer extends React.Component<TeamContainerProps, TeamContainerSta
 		
 		// let teamsToRender = [...roundOne] 
 		
-		const { roundOne, roundTwo, roundThree, currentRound } = this.state
+		const { roundOne, roundTwo, roundThree, winner, currentRound } = this.state
 
 		return <div className="team-container">
 			<div className="team-row">
@@ -154,9 +162,12 @@ class TeamContainer extends React.Component<TeamContainerProps, TeamContainerSta
 				{this.renderAnyRd(roundTwo)}
 			</div>
 
-			{/* <div className="team-row">
+			<div className="team-row">
 				{this.renderAnyRd(roundThree)}
-			</div> */}
+			</div> 
+			<div className="team-row">
+				{this.renderAnyRd(winner)}
+			</div>
 			<div onClick={() => this.handleClickNextRd()} > Next Round! </div>
 			</div>
 		

@@ -55,6 +55,11 @@ Lesson 2.1 - More React
 	Homework
 	Debugging https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/debugging/
 
+Lesson 2.2 - More React 
+	- back to job tracking app 
+	- practice setting state more 
+	- passing props if we get to it
+
 Lesson 2.5 - Stability
 	- enforce Typescript
 	- react router
@@ -84,5 +89,5 @@ Lesson 4 - Node, Mongodb, Mongoose
 Lesson 5 - As it happens
 	- 
 
-After Phase 3
+During Phase 3
 	- Coding Interview Prep (Thousands of hours of challenges) https://www.freecodecamp.org/learn/
