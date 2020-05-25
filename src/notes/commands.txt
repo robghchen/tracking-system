@@ -30,3 +30,9 @@ git commit -m "feat(topic): message"
 
 Send the stuff that you saved to github
 git push
+
+Store the current work to local memory
+git stash
+
+Unload what was stashed
+git stash pop
