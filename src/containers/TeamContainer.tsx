@@ -1,6 +1,4 @@
 import React from 'react'
-//import JobCard from '../components/JobCard'
-//import JobRow from '../components/JobRow'
 
 interface TeamContainerProps {
 	roundOne: any
@@ -15,6 +13,11 @@ interface TeamContainerState {
 	[x: string]: any
 }
 
+	// General Guidelines for clean code
+	// one source of truth
+	// DRY (don't repeat yourself)
+	// separation of concerns
+
 class TeamContainer extends React.Component<TeamContainerProps, TeamContainerState> {
 	state = {
 		  roundOne: [],
@@ -27,11 +30,6 @@ class TeamContainer extends React.Component<TeamContainerProps, TeamContainerSta
 	componentDidMount () {
 		this.setState({ roundOne: this.props.roundOne })
 	}
-
-	// General Guidelines for clean code
-	// one source truth
-	// DRY (don't repeat yourself)
-	// separation of concerns
 
 	handleClickPoint = (teamID, subAdd) => {
 		const { roundOne, roundTwo, roundThree } = this.state
@@ -74,7 +72,8 @@ class TeamContainer extends React.Component<TeamContainerProps, TeamContainerSta
 			
 			return team
 		})
-			this.setState({[roundKey]: updatedteamsClicked})
+		
+		this.setState({[roundKey]: updatedteamsClicked})
 	}
 
 	handleClickNextRd = () =>{
@@ -114,9 +113,6 @@ class TeamContainer extends React.Component<TeamContainerProps, TeamContainerSta
 		})		
 		
 		this.setState({[roundKey]: updatedWinners, currentRound: currentRound+=1})
-		
-	// we still need to create pairings to go against each other (versus)
-	// what if all roundOne are >= 6 points?
 	}
 
 	renderAnyRd = (teamsFromAnyRound) =>{
@@ -129,13 +125,6 @@ class TeamContainer extends React.Component<TeamContainerProps, TeamContainerSta
 				</div>
 			})
 	}
-
-	// so far:
-	// get roundOne from database into App.tsx
-	// pass roundOne down from App.tsx to TeamContainer.tsx
-	// render each team showing teamName and points
-	// able to add a point to the team that was clicked
-
 	
 	
 	render() {
@@ -145,59 +134,29 @@ class TeamContainer extends React.Component<TeamContainerProps, TeamContainerSta
 		// create new Array or alter db.json to to store rounds with the team with the higher point - push the winner to this array?
 		//function to "send down" winning team
 		//if team points are tied, reset to 0 points
-		// const { roundOne } = this.props;
-		// const { isSortByteamName, teamsClicked, points } = this.state;
+		
+		const { roundOne, roundTwo, roundThree, winner } = this.state
 
-		
-		// let teamsToRender = [...roundOne] 
-		
-		const { roundOne, roundTwo, roundThree, winner, currentRound } = this.state
+		return (
+			<div className="team-container">
+				<div className="team-row">
+					{this.renderAnyRd(roundOne)}
+				</div>
 
-		return <div className="team-container">
-			<div className="team-row">
-				{this.renderAnyRd(roundOne)}
-			</div>
+				<div className="team-row">
+					{this.renderAnyRd(roundTwo)}
+				</div>
 
-			<div className="team-row">
-				{this.renderAnyRd(roundTwo)}
+				<div className="team-row">
+					{this.renderAnyRd(roundThree)}
+				</div> 
+				<div className="team-row">
+					{this.renderAnyRd(winner)}
+				</div>
+				<div onClick={() => this.handleClickNextRd()} > Next Round! </div>
 			</div>
-
-			<div className="team-row">
-				{this.renderAnyRd(roundThree)}
-			</div> 
-			<div className="team-row">
-				{this.renderAnyRd(winner)}
-			</div>
-			<div onClick={() => this.handleClickNextRd()} > Next Round! </div>
-			</div>
-		
-		
-		
-	
+		)
 	}
 }
 export default TeamContainer
-
-
-
-
-
-// {/* <button onClick={() => this.toggleClick(true)}>hamburger icon</button>
-// 				<button onClick={() => this.toggleClick(false)}>reverseHam</button>
-// 				<div className={'job-container'}>
-// 					{/* we have to use onClick to tag our buttons with the functions that we created */}
-// 					<button onClick={() => this.toggleSort('salary')}>Salary</button>
-// 					<button onClick={() => this.toggleSort('rating')}>Best Rated</button>
-// 					<button onClick={() => this.toggleSort('location')}>Location</button>
-// 					<button onClick={() => this.toggleSort('recent')}>Recent</button>
-// 					{jobsToRender.map(job => {
-// 						// earlier we were keeping track of what jobs were clicked by updating our state with the id of the jobs that were clicked
-// 						// if the job in this loop exists in our jobsClicked array, then we want to show the JobRow instead of the JobCard
-// 						if (jobsClicked.includes(job.id) === true) {
-// 							return <JobRow job={job} handleClickJobRow={this.handleClickJobRow} />
-// 						}
-// 						return <JobCard job={job} handleClickJobCard={this.handleClickJobCard} />
-// 					})}
-
-// 				</div> */}
 
