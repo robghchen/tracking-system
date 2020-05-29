@@ -5,6 +5,10 @@ Begin
 4. 1080i
 5. 1080i60
 
+Video
+1. Effect
+2. Scale 150
+
 Audio
 1. Unlink audio
 2. Open in audition
@@ -15,15 +19,22 @@ Audio
 7. Apply
 8. cmd + s
 
-Editting
-- cut in place
-cmd + k
-- speed up
-shift + l
-
 Export media
 1. cmd + m
 2. Format: H264
 3. Preset: Match Source - High bitrate
 4. Output name
 5. Export
+
+Common Shortcuts:
+Edit speed of clip
+cmd + r
+
+Cut in place
+cmd + k
+
+Speed up
+shift + l
+
+Adjust gain (volume)
+g
