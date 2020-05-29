@@ -50,10 +50,17 @@ Lesson 2 - React
 
 Lesson 2.1 - More React 
 	- tournament challenge	
-	- semantic UI
 
 	Homework
 	Debugging https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/debugging/
+
+
+Lesson 2.2 - More React 
+	- build job tracking app dashboard
+	- practice setting state more 
+	- practice passing props
+	- practice debugging with console.log and debugger
+	- semantic UI
 
 Lesson 2.5 - Stability
 	- enforce Typescript
