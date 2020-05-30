@@ -95,7 +95,7 @@ class TeamContainer extends React.Component<TeamContainerProps, TeamContainerSta
 					{this.renderTeamRows()}
 				</div>
 				<br />
-				<button className="gradient-button" onClick={this.handleClickNextRound} > Next Round! </button>
+				<button className="gradient-button" onClick={this.handleClickNextRound} > Next Round!</button>
 			</div>
 		)
 	}
