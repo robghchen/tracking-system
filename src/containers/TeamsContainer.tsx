@@ -4,20 +4,21 @@ import { Team } from '../constants/Interfaces'
 
 interface TeamsContainerProps {
 	rounds: {
-		[x: number]: Team[]
+		[key: number]: Team[]
 	}
 	roundNumber: number
-	handleClickPoint: (teamId, subAdd) => void
+	handleClickPoint: (teamId: number, subAdd: string) => void
+	handleClickCard: (teamId: number, isClicked: boolean, roundNumber: number) => void
 }
 
 class TeamsContainer extends React.Component<TeamsContainerProps, null> {
 	renderTeamCards = (): {} => {
-		const { rounds, roundNumber, handleClickPoint } = this.props
+		const { rounds, roundNumber, handleClickPoint, handleClickCard } = this.props
 		const thisRoundTeams: Team[] = rounds[roundNumber]
 		const isWinner: boolean = thisRoundTeams.length === 1
 
 		return [...thisRoundTeams].map((team, index) => {
-			return <TeamCard team={team} isWinner={isWinner} index={index} handleClickPoint={handleClickPoint} />
+			return <TeamCard team={team} isWinner={isWinner} index={index} roundNumber={roundNumber} handleClickPoint={handleClickPoint} handleClickCard={handleClickCard} />
 
 		})
 	}
@@ -25,9 +26,11 @@ class TeamsContainer extends React.Component<TeamsContainerProps, null> {
 	render() {
 		const { roundNumber } = this.props
 
-		return <div className="teams-container" key={`round ${roundNumber}`} >
-			{this.renderTeamCards()}
-		</div>
+		return (
+			<div className="teams-container" key={`round ${roundNumber}`} >
+				{this.renderTeamCards()}
+			</div>
+		)
 	}
 }
 
