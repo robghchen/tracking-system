@@ -1,12 +1,13 @@
 import React from 'react'
-import TeamRow from '../components/TeamRow'
+import TeamsContainer from './TeamsContainer'
+import { Team, Round } from '../constants/Interfaces'
 
 interface TeamContainerProps {
-	teams: any
+	teams: Team[]
 }
 
 interface TeamContainerState {
-	rounds: any,
+	rounds: Round,
 	currentRound: number,
 }
 
@@ -19,7 +20,7 @@ class TeamContainer extends React.Component<TeamContainerProps, TeamContainerSta
 		currentRound: 1,
 	}
 
-	handleClickPoint = (teamID: number, subAdd: string) => {
+	handleClickPoint = (teamID: number, subAdd: string): void => {
 		const { rounds, currentRound } = this.state
 
 		const currentRoundTeams = rounds[currentRound]
@@ -49,7 +50,7 @@ class TeamContainer extends React.Component<TeamContainerProps, TeamContainerSta
 		this.setState({ rounds: { ...rounds, [currentRound]: teamsUpdatedPoints } })
 	}
 
-	handleClickNextRound = () => {
+	handleClickNextRound = (): void => {
 		const { rounds } = this.state
 		let { currentRound } = this.state
 		const currentRoundTeams = rounds[currentRound]
@@ -77,11 +78,11 @@ class TeamContainer extends React.Component<TeamContainerProps, TeamContainerSta
 		this.setState({ rounds: { ...rounds, [nextRound]: resetWinners }, currentRound: currentRound + 1 })
 	}
 
-	renderTeamRows = () => {
+	renderTeamRows = (): {} => {
 		const { rounds } = this.state
 
 		return Object.keys(rounds).map((roundNumber) => {
-			return <TeamRow rounds={rounds} roundNumber={roundNumber} handleClickPoint={this.handleClickPoint} />
+			return <TeamsContainer rounds={rounds} roundNumber={parseInt(roundNumber)} handleClickPoint={this.handleClickPoint} />
 		})
 	}
 

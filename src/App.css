@@ -3,12 +3,12 @@
 	text-align: center;
 }
 
-.team-container {
+.tournament-container {
 	display: flex;
 	flex-direction: column;
 }
 
-.team-row {
+.teams-container {
 	margin: 12px 0px;
 	display: flex;
 	flex-direction: row;

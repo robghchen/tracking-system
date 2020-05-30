@@ -1,12 +1,16 @@
 import React from 'react';
 import './App.css';
 import axios from 'axios';
-import TeamContainer from './containers/TeamContainer'
+import TournamentContainer from './containers/TournamentContainer'
+import { Team } from './constants/Interfaces'
 
 // Lesson 2.1 - More React 
 // 	- tournament challenge
+interface AppState {
+	teams: Team[]
+}
 
-class App extends React.Component {
+class App extends React.Component<{}, AppState> {
 	state = {
 		teams: [],
 	}
@@ -19,7 +23,6 @@ class App extends React.Component {
 			this.setState({ teams: response.data }) // update the state in this file
 		} catch (error) {
 			console.log(error)
-
 		}
 	}
 
@@ -32,7 +35,7 @@ class App extends React.Component {
 
 		return (
 			<div className="App" >
-				{<TeamContainer teams={teams} />}
+				{<TournamentContainer teams={teams} />}
 				{/* pass teams as a prop to other file */}
 			</div >
 		)

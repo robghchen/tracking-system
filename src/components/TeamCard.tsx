@@ -1,10 +1,11 @@
 import React from 'react'
+import { Team } from '../constants/Interfaces'
 
 interface TeamCardProps {
-	team: any
+	team: Team
 	isWinner: boolean
 	index: number
-	handleClickPoint: any
+	handleClickPoint: (teamId, subAdd) => void
 }
 
 interface TeamCardState {
@@ -16,7 +17,7 @@ class TeamCard extends React.Component<TeamCardProps, TeamCardState> {
 		isClicked: false
 	}
 
-	handleClickCard = () => {
+	handleClickCard = (): void => {
 		const { isClicked } = this.state
 
 		this.setState({ isClicked: !isClicked })
@@ -26,8 +27,8 @@ class TeamCard extends React.Component<TeamCardProps, TeamCardState> {
 		const { team, isWinner, index, handleClickPoint } = this.props
 		const { isClicked } = this.state
 
-		let teamColor = 'red'
-		let cardClicked = 'card-not-clicked'
+		let teamColor: string = 'red'
+		let cardClicked: string = 'card-not-clicked'
 
 		if (index % 2 === 0) {
 			teamColor = 'blue'
@@ -40,7 +41,7 @@ class TeamCard extends React.Component<TeamCardProps, TeamCardState> {
 		if (isWinner) {
 			return (
 				<div className={`team-card ${teamColor} ${cardClicked}`} key={team.id}>
-					<h2>WINNER <span role="img" aria-label="crown">👑</span></h2>
+					<h2><span role="img" aria-label="crown">👑</span> WINNER <span role="img" aria-label="crown">👑</span></h2>
 					<h1>{team.teamName}</h1>
 				</div>
 			)
