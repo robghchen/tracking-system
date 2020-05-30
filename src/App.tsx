@@ -32,7 +32,7 @@ class App extends React.Component {
 
 		return (
 			<div className="App" >
-				{<TeamContainer roundOne={teams} />}
+				{<TeamContainer teams={teams} />}
 				{/* pass teams as a prop to other file */}
 			</div >
 		)
