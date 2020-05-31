@@ -49,23 +49,25 @@ Lesson 2 - React
 	React https://www.freecodecamp.org/learn/front-end-libraries/react/
 
 Lesson 2.1 - More React 
-	- tournament challenge	
+	o tournament challenge	
 
 	Homework
 	Debugging https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/debugging/
 
 
-Lesson 2.2 - More React 
-	- build job tracking app dashboard
+Lesson 2.2 - CRUD
+	- continue building job tracking app dashboard
+	- semantic UI
+	- fontawesome
+	- enforce Typescript
+	- CRUD
 	- practice setting state more 
 	- practice passing props
 	- practice debugging with console.log and debugger
-	- semantic UI
 
-Lesson 2.5 - Stability
-	- enforce Typescript
-	- react router
+Lesson 2.5 - Unit test
 	- unit testing
+	- react router
 
 Lesson 3 - Redux
 	- setup 
