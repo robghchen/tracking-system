@@ -21,12 +21,25 @@ import JobContainer from './containers/JobContainer'
 // 	- tournament challenge	
 // 	- semantic UI
 
+
 class App extends React.Component {
 	state = {
 		users: [],
 	}
 
 	async componentDidMount() {
+		try {
+			// a good place to make network requests to get information
+			// console.log('componentDidMount')
+			const response = await axios.get('http://localhost:3001/users') // axios to get backend local host 3001/users
+
+			this.setState({ users: response.data }) // update the state in this file
+		} catch (error) {
+			console.log(error)
+		}
+	}
+
+	async getUsers() {
 		try {
 			// a good place to make network requests to get information
 			// console.log('componentDidMount')
@@ -68,7 +81,7 @@ class App extends React.Component {
 
 		return (
 			<div className="App" >
-				<JobContainer jobs={wesley.jobs} />
+				<JobContainer jobs={wesley.jobs} getUsers={this.getUsers} />
 				{/* pass jobs as a prop to other file */}
 			</div >
 		);

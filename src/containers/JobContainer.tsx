@@ -1,10 +1,17 @@
 import React from 'react'
 import JobCard from '../components/JobCard'
 import JobRow from '../components/JobRow'
+import { Card, Image, Modal, Button } from 'semantic-ui-react'
+import { Job } from '../utils/helpers'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { faTh } from '@fortawesome/free-solid-svg-icons'
+import JobForm from '../components/JobForm'
+import axios from 'axios'
 
 interface JobContainerProps {
 	jobs: any[]
-
+	getUsers: any
 }
 
 interface JobContainerState {
@@ -25,6 +32,60 @@ class JobContainer extends React.Component<JobContainerProps, JobContainerState>
 		isSortByLocation: false,
 		isSortByRecent: false,
 		jobsClicked: [],
+	}
+
+	handleDelete = async (jobId) => {
+		const { jobs, getUsers } = this.props
+		const jobsDeleted = [...jobs].filter(job => {
+			console.log('jobId', jobId)
+			if (job.id === jobId) {
+				return false
+			}
+			return true
+		})
+		try {
+			await axios.patch('http://localhost:3001/users/1', { jobs: [...jobsDeleted] })
+			await getUsers()
+		} catch (error) {
+			console.log(error)
+		}
+
+	}
+	//clone the array and then match the passed in jobID with the jobid's in the array
+	//if passedInJobid===arrayjobID, axios.update
+	//onClick()=>handleDelete 
+
+	//create button for deleting job
+	//associate each delete button of job card to jobid 
+	//create a fx that incorporates axios.update to filter out the jobid 
+	//
+
+	starRating = (jobRating) => {
+		let stars = ''
+		for (let i = 0; i < jobRating; i++) {
+			stars = stars + '⭐️'
+		}
+
+		return stars
+	}
+
+	colorRating = (jobRating) => {
+		if (jobRating === 1) {
+			return 'red'
+		}
+		if (jobRating === 2) {
+			return 'orange'
+		}
+		if (jobRating === 3) {
+			return 'yellow'
+		}
+		if (jobRating === 4) {
+			return 'blue'
+		}
+		if (jobRating === 5) {
+			return 'green'
+		}
+
 	}
 
 	toggleSort = (sortType) => {
@@ -57,10 +118,10 @@ class JobContainer extends React.Component<JobContainerProps, JobContainerState>
 			}
 			return true
 		})
-		this.setState({jobsClicked: updatedJobsClicked})
+		this.setState({ jobsClicked: updatedJobsClicked })
 	}
 
-	handleClickJobCard = (job) => {
+	handleClickJobCard = (job: Job) => {
 		// adding the id of the job that was clicked to our state so that we know what to render
 		const { jobsClicked } = this.state
 		const updatedJobsClicked = [...jobsClicked, job.id]
@@ -75,15 +136,16 @@ class JobContainer extends React.Component<JobContainerProps, JobContainerState>
 		})
 		console.log('jobsIds:', jobsIds)
 
-		this.setState({jobsClicked: jobsIds})
+		this.setState({ jobsClicked: jobsIds })
 	}
-	
+
 	handleClickReverseHamburger = () => {
 		const jobsIds = []
 		console.log('jobsIds:', jobsIds)
 
-		this.setState({jobsClicked: jobsIds})
+		this.setState({ jobsClicked: jobsIds })
 	}
+
 
 	toggleClick = (isHamburger) => {
 		if (isHamburger === true) {
@@ -93,13 +155,13 @@ class JobContainer extends React.Component<JobContainerProps, JobContainerState>
 				return job.id
 			})
 			console.log('jobsIds:', jobsIds)
-	
-			this.setState({jobsClicked: jobsIds})
+
+			this.setState({ jobsClicked: jobsIds })
 		} else {
 			const jobsIds = []
-		console.log('jobsIds:', jobsIds)
+			console.log('jobsIds:', jobsIds)
 
-		this.setState({jobsClicked: jobsIds})
+			this.setState({ jobsClicked: jobsIds })
 		}
 	}
 
@@ -146,27 +208,29 @@ class JobContainer extends React.Component<JobContainerProps, JobContainerState>
 		}
 
 		return (
-			<div> 
-				<button onClick={() => this.toggleClick(true)}>hamburger icon</button>
-				<button onClick={() => this.toggleClick(false)}>reverseHam</button>
+			<div>
+				<Modal trigger={<Button>Add New Job</Button>}><Modal.Content><JobForm jobs={jobs} /></Modal.Content></Modal>
+				<button onClick={() => this.toggleClick(true)}><FontAwesomeIcon icon={faBars} /></button>
+				<button onClick={() => this.toggleClick(false)}><FontAwesomeIcon icon={faTh} /></button>
 				<div className={'job-container'}>
 					{/* we have to use onClick to tag our buttons with the functions that we created */}
 					<button onClick={() => this.toggleSort('salary')}>Salary</button>
 					<button onClick={() => this.toggleSort('rating')}>Best Rated</button>
 					<button onClick={() => this.toggleSort('location')}>Location</button>
 					<button onClick={() => this.toggleSort('recent')}>Recent</button>
-					{jobsToRender.map(job => {
-						// earlier we were keeping track of what jobs were clicked by updating our state with the id of the jobs that were clicked
-						// if the job in this loop exists in our jobsClicked array, then we want to show the JobRow instead of the JobCard
-						if (jobsClicked.includes(job.id) === true) {
-							return <JobRow job={job} handleClickJobRow={this.handleClickJobRow} />
-						}
-						return <JobCard job={job} handleClickJobCard={this.handleClickJobCard} />
-					})}
-
+					<Card.Group>
+						{jobsToRender.map(job => {
+							// earlier we were keeping track of what jobs were clicked by updating our state with the id of the jobs that were clicked
+							// if the job in this loop exists in our jobsClicked array, then we want to show the JobRow instead of the JobCard
+							if (jobsClicked.includes(job.id) === true) {
+								return <JobRow job={job} handleClickJobRow={this.handleClickJobRow} starRating={this.starRating} colorRating={this.colorRating} handleDelete={this.handleDelete} />
+							}
+							return <JobCard job={job} handleClickJobCard={this.handleClickJobCard} starRating={this.starRating} colorRating={this.colorRating} handleDelete={this.handleDelete} />
+						})}
+					</Card.Group>
 				</div>
-			</div>
-			
+			</div >
+
 		)
 	}
 }
