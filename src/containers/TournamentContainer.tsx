@@ -16,7 +16,7 @@ interface TeamContainerState {
 	currentRound: number,
 }
 
-const numVoters = 4
+const numVoters = 3
 const pointsToWin = Math.floor((numVoters / 2) + 1)
 
 class TeamContainer extends React.Component<TeamContainerProps, TeamContainerState> {
