@@ -69,10 +69,12 @@ Lesson 2.2 - CRUD (Create Read Update Destroy)
 	o practice passing props
 
 Lesson 2.3 - Redux
-	- setup 
-	- mapStateToProps
+	- finish crud
+	- react router
+	- setup redux
 	- action, payload
 	- reducer
+	- mapStateToProps
 	- mapDispatchToProps
 
 	Homework
@@ -81,7 +83,6 @@ Lesson 2.3 - Redux
 	
 Lesson 3 - Unit test
 	- unit testing
-	- react router
 
 Lesson 4 - Node, Mongodb, Mongoose
 	- schema
