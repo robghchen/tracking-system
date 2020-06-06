@@ -49,18 +49,26 @@ Lesson 2 - React
 	React https://www.freecodecamp.org/learn/front-end-libraries/react/
 
 Lesson 2.1 - More React 
-	- tournament challenge	
-	- semantic UI
+	o tournament challenge	
 
 	Homework
 	Debugging https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/debugging/
 
-Lesson 2.5 - Stability
-	- enforce Typescript
-	- react router
-	- unit testing
 
-Lesson 3 - Redux
+Lesson 2.2 - CRUD (Create Read Update Destroy)
+	o continue building job tracking app dashboard
+	o semantic UI
+	o fontawesome
+	o enforce Typescript
+	- CRUD
+		- CREATE post information to db
+		o READ get information from db
+		o UPDATE replace information from db
+		- DESTROY deletes information from db
+	o practice setting state more 
+	o practice passing props
+
+Lesson 2.3 - Redux
 	- setup 
 	- mapStateToProps
 	- action, payload
@@ -70,6 +78,10 @@ Lesson 3 - Redux
 	Homework
 	Redux https://www.freecodecamp.org/learn/front-end-libraries/redux/
 	React and Redux https://www.freecodecamp.org/learn/front-end-libraries/react-and-redux/
+	
+Lesson 3 - Unit test
+	- unit testing
+	- react router
 
 Lesson 4 - Node, Mongodb, Mongoose
 	- schema

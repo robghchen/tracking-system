@@ -1,4 +1,8 @@
 .job-container {
+	width: 100vw;
+}
+
+/* .job-container {
 	display: flex;
 	flex-direction: row;
 	flex: wrap;
@@ -33,4 +37,4 @@
 	border: 1px solid grey;
 	border-radius: 12px;
 	height: 250px;
-}
+} */

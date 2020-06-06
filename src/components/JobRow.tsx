@@ -1,27 +1,34 @@
 import React from 'react'
+import { Card, Image } from 'semantic-ui-react'
+import { Job } from '../utils/helpers'
 
 interface JobRowProps {
-	job: any
-	handleClickJobRow: any
+	job: Job
+	handleClickJobRow: (job) => void
+	starRating: (jobRating) => string
+	colorRating: (jobRating) => any
+	handleDelete: (job) => any
 }
 
 class JobRow extends React.Component<JobRowProps, null> {
 	render() {
 		//we'll need this to render the clicked button from job card here
-		const { job, handleClickJobRow } = this.props
+		const { job, handleClickJobRow, starRating, colorRating, handleDelete } = this.props
 
-		return <div className="job-row" onClick={() => handleClickJobRow(job)} >
-			{/* // would become the clicked job card's variables from data */}
-			<h3>{job.companyName}</h3>
-			<p>Glassdoor: {job.rating}<span role="img" aria-label="star">⭐️</span></p>
-			<p>${job.salary}</p>
-			<p>Company Size: {job.companySize}<span role="img" aria-label="people">👨‍👩‍👧‍👦</span></p>
-			<p>Industry: {job.industry}</p>
-			<p>Status: {job.status}</p>
-			<br />
-			<p>Description: {job.description}</p>
-
-		</div>
+		return <Card color={colorRating(job.rating)} fluid onClick={() => handleClickJobRow(job)} >
+			<Card.Content>
+				<button onClick={() => handleDelete(job.id)}>DELETE</button>
+				<Card.Header>
+					{job.companyName}
+					<span role='img' aria-label='star'>  {starRating(job.rating)}  </span>
+				</Card.Header>
+				<Card.Meta>Status: {job.status} </Card.Meta>
+				<Card.Description> Salary: ${job.salary}
+					<br /> Size: {job.companySize}
+					<br /> Industry: {job.industry}
+					<br /> Description: {job.description}</Card.Description>
+			</Card.Content>
+		</Card>
 	}
 }
 
