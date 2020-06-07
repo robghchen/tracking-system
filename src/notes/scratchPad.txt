@@ -71,11 +71,15 @@ Lesson 2.2 - CRUD (Create Read Update Destroy)
 Lesson 2.3 - Redux
 	- finish crud
 	- react router
+		- BrowserRouter
+		- Switch
+		- Route 
+		- Link to
 	- setup redux
-	- action, payload
-	- reducer
-	- mapStateToProps
-	- mapDispatchToProps
+		- action, payload
+		- reducer
+		- mapStateToProps
+		- mapDispatchToProps
 
 	Homework
 	Redux https://www.freecodecamp.org/learn/front-end-libraries/redux/
