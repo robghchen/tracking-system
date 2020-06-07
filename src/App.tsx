@@ -4,6 +4,8 @@ import axios from 'axios';
 import JobsContainer from './containers/JobsContainer'
 import UserUpdate from './components/UserUpdate'
 import { Form, Button } from 'semantic-ui-react'
+import { Switch, Route } from 'react-router-dom'
+import Navbar from './components/Navbar'
 
 // Lesson 2 - React
 // o JSON server mock databse // the command to run the mock database is in commands.txt file inside of the notes folder
@@ -114,10 +116,13 @@ class App extends React.Component {
 		const wesley = users[0] // for now, we can hard code the first user, but when we have a real database we'll have to find the user with their login credentials, probably by the user's email
 		return (
 			<div className="App" >
-				<JobsContainer jobs={wesley.jobs} getUsers={this.getUsers} />
-				{/* pass jobs as a prop to other file */}\
-				<button onClick={this.toggleForm}>Add User</button>
-				{this.renderSignUpForm()}
+				<Navbar />
+				<Switch>
+					<Route path='/signup' component={UserUpdate} />
+					<Route path='/' render={(props) => <JobsContainer jobs={wesley.jobs} getUsers={this.getUsers} />} />
+					
+				
+				</Switch>
 
 				<Form onSubmit={this.handleDelete}>
 					<Form.Field>
