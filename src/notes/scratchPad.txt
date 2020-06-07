@@ -60,19 +60,32 @@ Lesson 2.2 - CRUD (Create Read Update Destroy)
 	o semantic UI
 	o fontawesome
 	o enforce Typescript
-	- CRUD
-		- CREATE post information to db
+	o CRUD
+		o CREATE post information to db
 		o READ get information from db
 		o UPDATE replace information from db
-		- DESTROY deletes information from db
+		o DESTROY deletes information from db
 	o practice setting state more 
 	o practice passing props
 
-Lesson 2.3 - Redux
-	- setup 
-	- mapStateToProps
+Lesson 2.3 - React Router
+	o finish crud
+	o react router
+		o BrowserRouter
+		o Switch
+		o Route 
+		o Link to
+	o progress check
+		o create a new container (yourNameSportsContainer)
+			o state has your name and an array of sports that you've played, each sport is an object that has 'sportName', 'yearStarted', 'yearEnded'
+			o renders your name and the sports that you've played (sportCard)
+				o create a new component (yourNameSportCard)
+					o renders 'sportName', 'yearStarted', 'yearEnded'
+
+Lesson 2.4 - Redux
 	- action, payload
 	- reducer
+	- mapStateToProps
 	- mapDispatchToProps
 
 	Homework
@@ -81,7 +94,6 @@ Lesson 2.3 - Redux
 	
 Lesson 3 - Unit test
 	- unit testing
-	- react router
 
 Lesson 4 - Node, Mongodb, Mongoose
 	- schema

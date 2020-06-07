@@ -1,46 +1,46 @@
 {
-  "users": [
-    {
-      "id": 1,
-      "email": "wesley@gmail.com",
-      "jobs": [
-        {
-          "id": 1,
-          "title": "frontend engineer",
-          "salary": 150000,
-          "rating": 4,
-          "location": "new york",
-          "description": "a bunch of stuff",
-          "companyName": "Google",
-          "companySize": 46980,
-          "industry": "Tech",
-          "status": "in person interview"
-        },
-        {
-          "id": 4,
-          "title": "backend engineer",
-          "salary": 180000,
-          "rating": 3,
-          "location": "california",
-          "description": "a bunch of stuff",
-          "companyName": "Ray Bans",
-          "companySize": 15585,
-          "industry": "Glasses",
-          "status": "offer"
-        },
-        {
-          "id": 5,
-          "title": "Engineer",
-          "salary": 120000,
-          "rating": 4,
-          "location": "New York",
-          "description": "car stuff",
-          "companyName": "Nissan",
-          "companySize": 2000,
-          "industry": "vehicle",
-          "status": "applied"
-        }
-      ]
-    }
-  ]
+	"users": [
+		{
+			"id": 1,
+			"email": "wesley@gmail.com",
+			"jobs": [
+				{
+					"id": 1,
+					"title": "frontend engineer",
+					"salary": 150000,
+					"rating": 4,
+					"location": "new york",
+					"description": "a bunch of stuff",
+					"companyName": "Google",
+					"companySize": 46980,
+					"industry": "Tech",
+					"status": "in person interview"
+				},
+				{
+					"id": 4,
+					"title": "backend engineer",
+					"salary": 180000,
+					"rating": 3,
+					"location": "california",
+					"description": "a bunch of stuff",
+					"companyName": "Ray Bans",
+					"companySize": 15585,
+					"industry": "Glasses",
+					"status": "offer"
+				},
+				{
+					"id": 5,
+					"title": "Engineer",
+					"salary": 120000,
+					"rating": 4,
+					"location": "New York",
+					"description": "car stuff",
+					"companyName": "Nissan",
+					"companySize": 2000,
+					"industry": "vehicle",
+					"status": "applied"
+				}
+			]
+		}
+	]
 }

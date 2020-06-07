@@ -9,12 +9,12 @@ import { faTh } from '@fortawesome/free-solid-svg-icons'
 import JobForm from '../components/JobForm'
 import axios from 'axios'
 
-interface JobContainerProps {
+interface JobsContainerProps {
 	jobs: any[]
 	getUsers: any
 }
 
-interface JobContainerState {
+interface JobsContainerState {
 	//Filtered States:
 	isSortBySalary: boolean
 	isSortByRating: boolean
@@ -25,7 +25,7 @@ interface JobContainerState {
 
 }
 
-class JobContainer extends React.Component<JobContainerProps, JobContainerState> {
+class JobsContainer extends React.Component<JobsContainerProps, JobsContainerState> {
 	state = {
 		isSortBySalary: false,
 		isSortByRating: false,
@@ -235,4 +235,4 @@ class JobContainer extends React.Component<JobContainerProps, JobContainerState>
 	}
 }
 
-export default JobContainer
+export default JobsContainer
