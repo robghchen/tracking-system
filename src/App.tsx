@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import axios from 'axios';
-import JobContainer from './containers/JobContainer'
+import JobsContainer from './containers/JobsContainer'
 
 // Lesson 2 - React
 // o JSON server mock databse // the command to run the mock database is in commands.txt file inside of the notes folder
@@ -81,7 +81,7 @@ class App extends React.Component {
 
 		return (
 			<div className="App" >
-				<JobContainer jobs={wesley.jobs} getUsers={this.getUsers} />
+				<JobsContainer jobs={wesley.jobs} getUsers={this.getUsers} />
 				{/* pass jobs as a prop to other file */}
 			</div >
 		);
