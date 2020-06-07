@@ -1,207 +1,46 @@
 {
-  "users": [
-    {
-      "id": 1,
-      "email": "wesley@gmail.com",
-      "jobs": [
-        {
-          "id": 1,
-          "title": "frontend engineer",
-          "salary": 150000,
-          "rating": 4,
-          "location": "new york",
-          "description": "a bunch of stuff",
-          "companyName": "Google",
-          "companySize": 46980,
-          "industry": "Tech",
-          "status": "in person interview"
-        },
-        {
-          "id": 4,
-          "title": "backend engineer",
-          "salary": 180000,
-          "rating": 3,
-          "location": "california",
-          "description": "a bunch of stuff",
-          "companyName": "Ray Bans",
-          "companySize": 15585,
-          "industry": "Glasses",
-          "status": "offer"
-        },
-        {
-          "id": 5,
-          "title": "Engineer",
-          "salary": 120000,
-          "rating": 4,
-          "location": "New York",
-          "description": "car stuff",
-          "companyName": "Nissan",
-          "companySize": 2000,
-          "industry": "vehicle",
-          "status": "applied"
-        }
-      ]
-    },
-    {
-      "users": [
-        "a",
-        "m",
-        "y",
-        "y",
-        ".",
-        "l",
-        "i",
-        "8",
-        "1",
-        "5",
-        "@",
-        "g",
-        "m",
-        "a",
-        "i",
-        "l",
-        ".",
-        "c",
-        "o",
-        "m",
-        {
-          "email": "amyy.li815@gmail.com"
-        }
-      ],
-      "id": 3
-    },
-    {
-      "users": [
-        "a",
-        "m",
-        "y",
-        "y",
-        ".",
-        "l",
-        "i",
-        "8",
-        "1",
-        "5",
-        "@",
-        "g",
-        "m",
-        "a",
-        "i",
-        "l",
-        ".",
-        "c",
-        "o",
-        "m",
-        {
-          "email": "amyy.li815@gmail.com"
-        }
-      ],
-      "id": 4
-    },
-    {
-      "users": [
-        "a",
-        "m",
-        "y",
-        "y",
-        ".",
-        "l",
-        "i",
-        "8",
-        "1",
-        "5",
-        "@",
-        "g",
-        "m",
-        "a",
-        "i",
-        "l",
-        ".",
-        "c",
-        "o",
-        "m",
-        {
-          "email": "amyy.li815@gmail.com"
-        }
-      ],
-      "id": 5
-    },
-    {
-      "users": [
-        "a",
-        "m",
-        "y",
-        "y",
-        ".",
-        "l",
-        "i",
-        "8",
-        "1",
-        "5",
-        "@",
-        "g",
-        "m",
-        "a",
-        "i",
-        "l",
-        ".",
-        "c",
-        "o",
-        "m",
-        {
-          "email": "amyy.li815@gmail.com"
-        }
-      ],
-      "id": 6
-    },
-    {
-      "users": [
-        "a",
-        "m",
-        "y",
-        "y",
-        ".",
-        "l",
-        "i",
-        "8",
-        "1",
-        "5",
-        "@",
-        "g",
-        "m",
-        "a",
-        "i",
-        "l",
-        ".",
-        "c",
-        "o",
-        "m",
-        {
-          "email": "amyy.li815@gmail.com"
-        }
-      ],
-      "id": 7
-    },
-    {
-      "users": [
-        "t",
-        "e",
-        "s",
-        "t",
-        "@",
-        "t",
-        "e",
-        "s",
-        "t",
-        ".",
-        "c",
-        "o",
-        "m",
-        {
-          "email": "test@test.com"
-        }
-      ],
-      "id": 8
-    }
-  ]
+	"users": [
+		{
+			"id": 1,
+			"email": "wesley@gmail.com",
+			"jobs": [
+				{
+					"id": 1,
+					"title": "frontend engineer",
+					"salary": 150000,
+					"rating": 4,
+					"location": "new york",
+					"description": "a bunch of stuff",
+					"companyName": "Google",
+					"companySize": 46980,
+					"industry": "Tech",
+					"status": "in person interview"
+				},
+				{
+					"id": 4,
+					"title": "backend engineer",
+					"salary": 180000,
+					"rating": 3,
+					"location": "california",
+					"description": "a bunch of stuff",
+					"companyName": "Ray Bans",
+					"companySize": 15585,
+					"industry": "Glasses",
+					"status": "offer"
+				},
+				{
+					"id": 5,
+					"title": "Engineer",
+					"salary": 120000,
+					"rating": 4,
+					"location": "New York",
+					"description": "car stuff",
+					"companyName": "Nissan",
+					"companySize": 2000,
+					"industry": "vehicle",
+					"status": "applied"
+				}
+			]
+		}
+	]
 }
