@@ -60,24 +60,44 @@
       {
         "id": 2,
         "teamName": "WRANK your code",
-        "points": 0,
+        "points": 4,
         "isClicked": false
       },
       {
         "id": 4,
         "teamName": "Decode Me",
         "points": 0,
-        "isClicked": false
+        "isClicked": true
       },
       {
         "id": 6,
         "teamName": "Cancel 2020",
-        "points": 0,
+        "points": 4,
         "isClicked": false
       },
       {
         "id": 7,
         "teamName": "Idk",
+        "points": 0,
+        "isClicked": true
+      },
+      {
+        "id": 9,
+        "teamName": "The Reactors",
+        "points": 4,
+        "isClicked": false
+      }
+    ],
+    "3": [
+      {
+        "id": 2,
+        "teamName": "WRANK your code",
+        "points": 0,
+        "isClicked": false
+      },
+      {
+        "id": 6,
+        "teamName": "Cancel 2020",
         "points": 0,
         "isClicked": false
       },
