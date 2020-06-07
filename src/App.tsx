@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import axios from 'axios';
 import JobsContainer from './containers/JobsContainer'
+import UserUpdate from './components/UserUpdate'
+import { Form, Button } from 'semantic-ui-react'
 
 // Lesson 2 - React
 // o JSON server mock databse // the command to run the mock database is in commands.txt file inside of the notes folder
@@ -25,6 +27,20 @@ import JobsContainer from './containers/JobsContainer'
 class App extends React.Component {
 	state = {
 		users: [],
+		seeForm: false,
+		userId: ''
+	}
+
+	toggleForm = () => {
+		const { seeForm } = this.state
+		this.setState({ seeForm: !seeForm })
+	}
+
+	renderSignUpForm = () => {
+		const { seeForm } = this.state
+		if (seeForm === true) {
+			return <UserUpdate />
+		}
 	}
 
 	async componentDidMount() {
@@ -51,6 +67,16 @@ class App extends React.Component {
 		}
 	}
 
+	handleDelete = async event => {
+		const { userId } = this.state
+		try {
+			await axios.delete(`http://localhost:3001/users/${userId}`)
+		} catch (error) {
+			console.log(error)
+		}
+	}
+
+
 	// two other common component life cycle methods:
 
 	// componentDidUpdate(prevProps, prevState) { 
@@ -67,24 +93,45 @@ class App extends React.Component {
 	// 		users: []
 	// 	})
 	// }
+	handleChange = (event, value) => {
+		console.log('value:', value.name)
+		console.log('value:', value)
 
+		this.setState({
+			[value.name]: value.value
+		})
+	}
 	render() {
 		// anytime we update state with setState(), that will trigger a rerender
 		// console.log('render')
 		const { users } = this.state // destructure users from our state which came from our network request to our backend database
+		const { userId } = this.state
 
 		if (users.length === 0) { // remember to handle edge case where data is not available yet to prevent app from crashing
 			return null;
 		}
 
 		const wesley = users[0] // for now, we can hard code the first user, but when we have a real database we'll have to find the user with their login credentials, probably by the user's email
-
 		return (
 			<div className="App" >
 				<JobsContainer jobs={wesley.jobs} getUsers={this.getUsers} />
-				{/* pass jobs as a prop to other file */}
-			</div >
-		);
+				{/* pass jobs as a prop to other file */}\
+				<button onClick={this.toggleForm}>Add User</button>
+				{this.renderSignUpForm()}
+
+				<Form onSubmit={this.handleDelete}>
+					<Form.Field>
+						<label>ID to Delete</label>
+						<Form.Input onChange={this.handleChange} name='userId' value={userId} placeholder='id' />
+					</Form.Field>
+
+				</Form>
+
+
+			</div>
+
+		)
+
 	}
 }
 

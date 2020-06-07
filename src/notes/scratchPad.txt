@@ -68,18 +68,25 @@ Lesson 2.2 - CRUD (Create Read Update Destroy)
 	o practice setting state more 
 	o practice passing props
 
-Lesson 2.3 - Redux
+Lesson 2.3 - React Router
 	- finish crud
 	- react router
 		- BrowserRouter
 		- Switch
 		- Route 
 		- Link to
-	- setup redux
-		- action, payload
-		- reducer
-		- mapStateToProps
-		- mapDispatchToProps
+	- progress check
+		- create a new container (yourNameSportsContainer)
+			- state has your name and an array of sports that you've played, each sport is an object that has 'sportName', 'yearStarted', 'yearEnded'
+			- renders your name and the sports that you've played (sportCard)
+				- create a new component (yourNameSportCard)
+					- renders 'sportName', 'yearStarted', 'yearEnded'
+
+Lesson 2.4 - Redux
+	- action, payload
+	- reducer
+	- mapStateToProps
+	- mapDispatchToProps
 
 	Homework
 	Redux https://www.freecodecamp.org/learn/front-end-libraries/redux/
