@@ -102,7 +102,7 @@ Lesson 4 - Node, Mongodb, Mongoose
 	- start building the backend
 
 	Homework 
-	Basic Node and Express https://www.freecodecamp.org/learn/apis-and-microservices/managing-packages-with-npm/
+	Basic Node and Express https://www.freecodecamp.org/learn/apis-and-microservices/basic-node-and-express
 	MongoDB and Mongoose https://www.freecodecamp.org/learn/apis-and-microservices/mongodb-and-mongoose/
 
 Lesson 5 - As it happens
