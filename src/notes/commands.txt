@@ -1,6 +1,9 @@
 Install packages
 yarn
 
+Create react app 
+yarn create react-app app-name-goes-here --template typescript
+
 Run backend mock db
 npx json-server --watch db.json --port 3001
 
