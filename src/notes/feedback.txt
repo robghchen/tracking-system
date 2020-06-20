@@ -1,0 +1,30 @@
+2020-06-14
+	- when asking to do something
+		- when it's too new, don't know what i'm talking about yet
+			- terms of what i'm saying didn't stick yet
+				- would be better to do this: "before when we did this _____, we have to do it again like how we did on line ____"
+	+ pausing, going back to review
+		+ run down of what we did
+		+ step by step following the functions of what's happening so student gets the bigger picture
+	- more console logging
+
+2020-06-20
+	- nail the basics first
+		- freecodecamp first, lesson follows
+	- more practice, consistent examples
+	- everyone's level is different
+		+ do more of having different people drive
+		- when someone is ahead and does all the work, the others aren't learning
+	- give lesson plan ahead of time to allow preparation
+	+ seeing the app come together is motivating
+	- give similar homework after a lesson 
+		- don't give answers
+		- even if getting it wrong, still doing it and googling it and trying to figure it out
+			- learning through mistakes
+	- working separately enforces everyone to learn
+		- free rider principle applies
+		- effect of having created the thing is not as great
+	- moved too fast, focus more and spend more time on each topic
+	- open hours, 1:1 meetings
+		- anxiety of slowing the group down with questions
+		- try alternating group session and 1:1 sessions each week
