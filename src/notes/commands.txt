@@ -2,6 +2,8 @@ Install packages
 yarn
 
 Create react app 
+yarn create react-app app-name-goes-here
+OR
 yarn create react-app app-name-goes-here --template typescript
 
 Run backend mock db

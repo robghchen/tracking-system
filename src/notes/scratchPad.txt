@@ -82,7 +82,11 @@ Lesson 2.3 - React Router
 				o create a new component (yourNameSportCard)
 					o renders 'sportName', 'yearStarted', 'yearEnded'
 
-Lesson 2.4 - Redux
+Lesson 2.4 - Libraries 
+	- drag & drop library
+	- calendar library
+
+Lesson 3 - Redux
 	- action, payload
 	- reducer
 	- mapStateToProps
@@ -91,9 +95,6 @@ Lesson 2.4 - Redux
 	Homework
 	Redux https://www.freecodecamp.org/learn/front-end-libraries/redux/
 	React and Redux https://www.freecodecamp.org/learn/front-end-libraries/react-and-redux/
-	
-Lesson 3 - Unit test
-	- unit testing
 
 Lesson 4 - Node, Mongodb, Mongoose
 	- schema
@@ -105,8 +106,8 @@ Lesson 4 - Node, Mongodb, Mongoose
 	Basic Node and Express https://www.freecodecamp.org/learn/apis-and-microservices/basic-node-and-express
 	MongoDB and Mongoose https://www.freecodecamp.org/learn/apis-and-microservices/mongodb-and-mongoose/
 
-Lesson 5 - As it happens
-	- 
+During Phase 2
+	- unit testing
 
 After Phase 3
 	- Coding Interview Prep (Thousands of hours of challenges) https://www.freecodecamp.org/learn/
