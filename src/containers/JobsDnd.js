@@ -2,27 +2,36 @@ import React, { Component } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 // fake data generator
-// const getItems = (jobs) =>
-// 	Array.from({ length: jobs.length }, (job, index) => job).map((job) => ({
-// 		id: `${job.id}`,
-// 		content: `${job.companyName} ${job.rating}`,
-// 	}));
-
-const getItems = (count = 3, offset = 0) =>
-	Array.from({ length: count }, (v, k) => {
-		console.log('k:', k);
-		console.log('v:', v);
-		return k;
-	}).map((k) => ({
-		id: `item-${k + offset}`,
-		content: `item ${k + offset}`,
-	}));
+const getItems = (jobs, offset = 0) =>
+	jobs.map((job, index) => {
+		return {
+			id: `item-${index + offset}`,
+			content: `${job.companyName} ${job.rating}`,
+		};
+	});
 
 // a little function to help us with reordering the result
 const reorder = (list, startIndex, endIndex) => {
 	const result = Array.from(list);
 	const [removed] = result.splice(startIndex, 1);
 	result.splice(endIndex, 0, removed);
+
+	return result;
+};
+
+/**
+ * Moves an item from one list to another list.
+ */
+const move = (source, destination, droppableSource, droppableDestination) => {
+	const sourceClone = Array.from(source);
+	const destClone = Array.from(destination);
+	const [removed] = sourceClone.splice(droppableSource.index, 1);
+
+	destClone.splice(droppableDestination.index, 0, removed);
+
+	const result = {};
+	result[droppableSource.droppableId] = sourceClone;
+	result[droppableDestination.droppableId] = destClone;
 
 	return result;
 };
@@ -36,106 +45,204 @@ const getItemStyle = (isDragging, draggableStyle) => ({
 	margin: `0 0 ${grid}px 0`,
 
 	// change background colour if dragging
-	background: isDragging ? 'lightgreen' : 'grey',
+	background: isDragging ? 'lightgreen' : '#38EFE7',
 
 	// styles we need to apply on draggables
 	...draggableStyle,
 });
 
 const getListStyle = (isDraggingOver) => ({
-	background: isDraggingOver ? 'lightblue' : 'lightgrey',
+	background: isDraggingOver ? 'lightblue' : 'white',
 	padding: grid,
 	width: 250,
 });
 
 class JobsDnd extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			phoneInt: [],
-			inPersonInterview: [],
-		};
-		this.onDragEnd = this.onDragEnd.bind(this);
-	}
+	state = {
+		items: [],
+		selected: [],
+		technical: [],
+		offer: [],
+	};
 
 	componentDidMount() {
-		const { jobs } = this.props;
-		// create a new array from the jobs array with jobs that have a status of "phone interview"
-		// set state for items with this new array
-
-		const phoneInt = jobs.filter((job) => {
-			if (job.status === 'phone interview') {
-				return true;
-			}
-		});
-		// create a new array from the jobs array with jobs that have a status of "in person interview"
-		// set state for inPersonInterview with this new array
-		const inPersonInt = [];
-
-		for (let i = 0; i < jobs.length; i++) {
-			let curEl = jobs[i];
-			if (curEl['status'] === 'in person interview') {
-				inPersonInt.push(curEl);
-			}
-		}
+		const firstColumn = getItems(this.props.jobs.filter((job) => job.status === 'phone interview'));
+		const secondColumnOffset = firstColumn.length;
+		const secondColumn = getItems(
+			this.props.jobs.filter((job) => job.status === 'in person interview'),
+			secondColumnOffset
+		);
+		const thirdColumnOffSet = firstColumn.length + secondColumn.length;
+		const thirdColumn = getItems(
+			this.props.jobs.filter((job) => job.status === 'technical interview'),
+			thirdColumnOffSet
+		);
+		const fourthColumnOffset = firstColumn.length + secondColumn.length + thirdColumn.length;
+		const fourthColumn = getItems(
+			this.props.jobs.filter((job) => job.status === 'offer'),
+			fourthColumnOffset
+		);
 
 		this.setState({
-			inPersonInterview: getItems(inPersonInt),
-			phoneInt: getItems(phoneInt, 3),
+			items: firstColumn,
+			selected: secondColumn,
+			technical: thirdColumn,
+			offer: fourthColumn,
 		});
 	}
+	/**
+	 * A semi-generic way to handle multiple lists. Matches
+	 * the IDs of the droppable container to the names of the
+	 * source arrays stored in the state.
+	 */
+	id2List = {
+		droppable: 'items',
+		droppable2: 'selected',
+		droppable3: 'technical',
+		droppable4: 'offer',
+	};
 
-	onDragEnd(result) {
+	getList = (id) => this.state[this.id2List[id]];
+
+	onDragEnd = (result) => {
+		const { source, destination } = result;
+
 		// dropped outside the list
-		if (!result.destination) {
+		if (!destination) {
 			return;
 		}
 
-		const phoneInt = reorder(this.state.phoneInt, result.source.index, result.destination.index);
+		if (source.droppableId === destination.droppableId) {
+			const items = reorder(this.getList(source.droppableId), source.index, destination.index);
 
-		this.setState({
-			phoneInt: phoneInt,
-		});
-	}
+			let state = { items };
+
+			if (source.droppableId === 'droppable2') {
+				state = { selected: items };
+			}
+			if (source.droppableId === 'droppable3') {
+				state = { technical: items };
+			}
+			if (source.droppableId === 'droppable4') {
+				state = { offer: items };
+			}
+			this.setState(state);
+		} else {
+			const result = move(this.getList(source.droppableId), this.getList(destination.droppableId), source, destination);
+
+			let newState = {};
+
+			if (destination.droppableId === 'droppable' || source.droppableId === 'droppable') {
+				newState.items = result.droppable;
+			}
+
+			if (destination.droppableId === 'droppable2' || source.droppableId === 'droppable2') {
+				newState.selected = result.droppable2;
+			}
+
+			if (destination.droppableId === 'droppable3' || source.droppableId === 'droppable3') {
+				newState.technical = result.droppable3;
+			}
+
+			if (destination.droppableId === 'droppable4' || source.droppableId === 'droppable4') {
+				newState.offer = result.droppable4;
+			}
+
+			this.setState(newState);
+		}
+	};
 
 	// Normally you would want to split things out into separate components.
 	// But in this example everything is just done in one place for simplicity
 	render() {
+		const { items, selected, technical, offer } = this.state;
+
+		const is1stColumnUndefined = items.find((item) => item === undefined);
+		const is2ndColumnUndefined = selected.find((item) => item === undefined);
+		const is3rdColumnUndefined = technical.find((item) => item === undefined);
+		const is4thColumnUndefined = offer.find((item) => item === undefined);
+
+		if (is1stColumnUndefined || is2ndColumnUndefined || is3rdColumnUndefined || is4thColumnUndefined) {
+			return <span></span>;
+		}
+
 		return (
-			<DragDropContext onDragEnd={this.onDragEnd}>
-				<Droppable droppableId="droppable">
-					{(provided, snapshot) => (
-						<div {...provided.droppableProps} ref={provided.innerRef} style={getListStyle(snapshot.isDraggingOver)}>
-							{this.state.phoneInt.map((item, index) => (
-								<Draggable key={item.id} draggableId={item.id} index={index}>
-									{(provided, snapshot) => (
-										<div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} style={getItemStyle(snapshot.isDragging, provided.draggableProps.style)}>
-											{item.content}
-										</div>
-									)}
-								</Draggable>
-							))}
-							{provided.placeholder}
-						</div>
-					)}
-				</Droppable>
-				<Droppable droppableId="droppable">
-					{(provided, snapshot) => (
-						<div {...provided.droppableProps} ref={provided.innerRef} style={getListStyle(snapshot.isDraggingOver)}>
-							{this.state.inPersonInterview.map((item, index) => (
-								<Draggable key={item.id} draggableId={item.id} index={index}>
-									{(provided, snapshot) => (
-										<div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} style={getItemStyle(snapshot.isDragging, provided.draggableProps.style)}>
-											{item.content}
-										</div>
-									)}
-								</Draggable>
-							))}
-							{provided.placeholder}
-						</div>
-					)}
-				</Droppable>
-			</DragDropContext>
+			<div className="jobs-dnd-container">
+				<DragDropContext onDragEnd={this.onDragEnd}>
+					<Droppable droppableId="droppable">
+						{(provided, snapshot) => {
+							return (
+								<div ref={provided.innerRef} style={getListStyle(snapshot.isDraggingOver)}>
+									{this.state.items.map((item, index) => {
+										return (
+											<Draggable key={item.id} draggableId={item.id} index={index}>
+												{(provided, snapshot) => (
+													<div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} style={getItemStyle(snapshot.isDragging, provided.draggableProps.style)}>
+														{item.content}
+													</div>
+												)}
+											</Draggable>
+										);
+									})}
+									{provided.placeholder}
+								</div>
+							);
+						}}
+					</Droppable>
+					<Droppable droppableId="droppable2">
+						{(provided, snapshot) => (
+							<div ref={provided.innerRef} style={getListStyle(snapshot.isDraggingOver)}>
+								{this.state.selected.map((item, index) => (
+									<Draggable key={item.id} draggableId={item.id} index={index}>
+										{(provided, snapshot) => (
+											<div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} style={getItemStyle(snapshot.isDragging, provided.draggableProps.style)}>
+												{item.content}
+											</div>
+										)}
+									</Draggable>
+								))}
+								{provided.placeholder}
+							</div>
+						)}
+					</Droppable>
+					<Droppable droppableId="droppable3">
+						{(provided, snapshot) => (
+							<div ref={provided.innerRef} style={getListStyle(snapshot.isDraggingOver)}>
+								{this.state.technical.map((item, index) => (
+									<Draggable key={item.id} draggableId={item.id} index={index}>
+										{(provided, snapshot) => (
+											<div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} style={getItemStyle(snapshot.isDragging, provided.draggableProps.style)}>
+												{item.content}
+											</div>
+										)}
+									</Draggable>
+								))}
+								{provided.placeholder}
+							</div>
+						)}
+					</Droppable>
+					<Droppable droppableId="droppable4">
+						{(provided, snapshot) => {
+							return (
+								<div ref={provided.innerRef} style={getListStyle(snapshot.isDraggingOver)}>
+									{this.state.offer.map((item, index) => {
+										return (
+											<Draggable key={item.id} draggableId={item.id} index={index}>
+												{(provided, snapshot) => (
+													<div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} style={getItemStyle(snapshot.isDragging, provided.draggableProps.style)}>
+														{item.content}
+													</div>
+												)}
+											</Draggable>
+										);
+									})}
+									{provided.placeholder}
+								</div>
+							);
+						}}
+					</Droppable>
+				</DragDropContext>
+			</div>
 		);
 	}
 }
