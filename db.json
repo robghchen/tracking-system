@@ -26,7 +26,7 @@
 					"companyName": "Ray Bans",
 					"companySize": 15585,
 					"industry": "Glasses",
-					"status": "offer"
+					"status": "phone interview"
 				},
 				{
 					"id": 5,
@@ -38,7 +38,7 @@
 					"companyName": "Nissan",
 					"companySize": 2000,
 					"industry": "vehicle",
-					"status": "applied"
+					"status": "phone interview"
 				}
 			]
 		}

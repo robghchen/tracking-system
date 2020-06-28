@@ -2,14 +2,21 @@ import React, { Component } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 // fake data generator
-const getItems = (jobs) => {
-	return jobs.map((job) => {
-		return {
-			id: `${job.rating}`,
-			content: `${job.companyName} ${job.rating}`,
-		};
-	});
-};
+// const getItems = (jobs) =>
+// 	Array.from({ length: jobs.length }, (job, index) => job).map((job) => ({
+// 		id: `${job.id}`,
+// 		content: `${job.companyName} ${job.rating}`,
+// 	}));
+
+const getItems = (count = 3, offset = 0) =>
+	Array.from({ length: count }, (v, k) => {
+		console.log('k:', k);
+		console.log('v:', v);
+		return k;
+	}).map((k) => ({
+		id: `item-${k + offset}`,
+		content: `item ${k + offset}`,
+	}));
 
 // a little function to help us with reordering the result
 const reorder = (list, startIndex, endIndex) => {
@@ -44,22 +51,50 @@ const getListStyle = (isDraggingOver) => ({
 class JobsDnd extends Component {
 	constructor(props) {
 		super(props);
-		console.log('props:', props);
 		this.state = {
-			items: getItems(props.jobs), // TODO replace this state with the jobs in our db
+			phoneInt: [],
+			inPersonInterview: [],
 		};
 		this.onDragEnd = this.onDragEnd.bind(this);
 	}
+
+	componentDidMount() {
+		const { jobs } = this.props;
+		// create a new array from the jobs array with jobs that have a status of "phone interview"
+		// set state for items with this new array
+
+		const phoneInt = jobs.filter((job) => {
+			if (job.status === 'phone interview') {
+				return true;
+			}
+		});
+		// create a new array from the jobs array with jobs that have a status of "in person interview"
+		// set state for inPersonInterview with this new array
+		const inPersonInt = [];
+
+		for (let i = 0; i < jobs.length; i++) {
+			let curEl = jobs[i];
+			if (curEl['status'] === 'in person interview') {
+				inPersonInt.push(curEl);
+			}
+		}
+
+		this.setState({
+			inPersonInterview: getItems(inPersonInt),
+			phoneInt: getItems(phoneInt, 3),
+		});
+	}
+
 	onDragEnd(result) {
 		// dropped outside the list
 		if (!result.destination) {
 			return;
 		}
 
-		const items = reorder(this.state.items, result.source.index, result.destination.index);
+		const phoneInt = reorder(this.state.phoneInt, result.source.index, result.destination.index);
 
 		this.setState({
-			items,
+			phoneInt: phoneInt,
 		});
 	}
 
@@ -71,7 +106,23 @@ class JobsDnd extends Component {
 				<Droppable droppableId="droppable">
 					{(provided, snapshot) => (
 						<div {...provided.droppableProps} ref={provided.innerRef} style={getListStyle(snapshot.isDraggingOver)}>
-							{this.state.items.map((item, index) => (
+							{this.state.phoneInt.map((item, index) => (
+								<Draggable key={item.id} draggableId={item.id} index={index}>
+									{(provided, snapshot) => (
+										<div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} style={getItemStyle(snapshot.isDragging, provided.draggableProps.style)}>
+											{item.content}
+										</div>
+									)}
+								</Draggable>
+							))}
+							{provided.placeholder}
+						</div>
+					)}
+				</Droppable>
+				<Droppable droppableId="droppable">
+					{(provided, snapshot) => (
+						<div {...provided.droppableProps} ref={provided.innerRef} style={getListStyle(snapshot.isDraggingOver)}>
+							{this.state.inPersonInterview.map((item, index) => (
 								<Draggable key={item.id} draggableId={item.id} index={index}>
 									{(provided, snapshot) => (
 										<div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} style={getItemStyle(snapshot.isDragging, provided.draggableProps.style)}>
