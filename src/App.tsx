@@ -6,6 +6,7 @@ import UserUpdate from './components/UserUpdate'
 import { Form, Button } from 'semantic-ui-react'
 import { Switch, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
+import DashboardContainer from './containers/DashboardContainer'
 
 // Lesson 2 - React
 // o JSON server mock databse // the command to run the mock database is in commands.txt file inside of the notes folder
@@ -69,16 +70,6 @@ class App extends React.Component {
 		}
 	}
 
-	handleDelete = async event => {
-		const { userId } = this.state
-		try {
-			await axios.delete(`http://localhost:3001/users/${userId}`)
-		} catch (error) {
-			console.log(error)
-		}
-	}
-
-
 	// two other common component life cycle methods:
 
 	// componentDidUpdate(prevProps, prevState) { 
@@ -119,20 +110,9 @@ class App extends React.Component {
 				<Navbar />
 				<Switch>
 					<Route path='/signup' component={UserUpdate} />
+					<Route path='/dashboard' render={(props) => <DashboardContainer jobs={wesley.jobs} />} />
 					<Route path='/' render={(props) => <JobsContainer jobs={wesley.jobs} getUsers={this.getUsers} />} />
-					
-				
 				</Switch>
-
-				<Form onSubmit={this.handleDelete}>
-					<Form.Field>
-						<label>ID to Delete</label>
-						<Form.Input onChange={this.handleChange} name='userId' value={userId} placeholder='id' />
-					</Form.Field>
-
-				</Form>
-
-
 			</div>
 
 		)

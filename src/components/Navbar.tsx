@@ -7,6 +7,9 @@ class Navbar extends React.Component {
 		return (
 			<Menu>
 				<Menu.Item>
+					<Link to='/dashboard'>Dashboard</Link>
+				</Menu.Item>
+				<Menu.Item>
 					<Link to='/'>Jobs</Link>
 				</Menu.Item>
 				<Menu.Item>

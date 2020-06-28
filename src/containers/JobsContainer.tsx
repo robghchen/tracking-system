@@ -134,7 +134,6 @@ class JobsContainer extends React.Component<JobsContainerProps, JobsContainerSta
 		const jobsIds = jobs.map(job => {
 			return job.id
 		})
-		console.log('jobsIds:', jobsIds)
 
 		this.setState({ jobsClicked: jobsIds })
 	}
@@ -206,6 +205,7 @@ class JobsContainer extends React.Component<JobsContainerProps, JobsContainerSta
 		if (isSortByRecent) {
 			jobsToRender = [...jobs].reverse() // our database is already returning the jobs from oldest to newest, so by doing .reverse() we would return jobs from newest to oldest
 		}
+		console.log('jobsToRender:', jobsToRender)
 
 		return (
 			<div>

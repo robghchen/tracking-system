@@ -26,7 +26,7 @@
 					"companyName": "Ray Bans",
 					"companySize": 15585,
 					"industry": "Glasses",
-					"status": "offer"
+					"status": "phone interview"
 				},
 				{
 					"id": 5,
@@ -38,7 +38,103 @@
 					"companyName": "Nissan",
 					"companySize": 2000,
 					"industry": "vehicle",
-					"status": "applied"
+					"status": "offer"
+				},
+				{
+					"id": 1,
+					"title": "frontend engineer",
+					"salary": 150000,
+					"rating": 4,
+					"location": "new york",
+					"description": "a bunch of stuff",
+					"companyName": "Microsoft",
+					"companySize": 46980,
+					"industry": "Tech",
+					"status": "in person interview"
+				},
+				{
+					"id": 4,
+					"title": "backend engineer",
+					"salary": 180000,
+					"rating": 3,
+					"location": "california",
+					"description": "a bunch of stuff",
+					"companyName": "AirBnB",
+					"companySize": 15585,
+					"industry": "Glasses",
+					"status": "technical interview"
+				},
+				{
+					"id": 5,
+					"title": "Engineer",
+					"salary": 120000,
+					"rating": 4,
+					"location": "New York",
+					"description": "car stuff",
+					"companyName": "BMW",
+					"companySize": 2000,
+					"industry": "vehicle",
+					"status": "technical interview"
+				},
+				{
+					"id": 1,
+					"title": "frontend engineer",
+					"salary": 150000,
+					"rating": 4,
+					"location": "new york",
+					"description": "a bunch of stuff",
+					"companyName": "Netflix",
+					"companySize": 46980,
+					"industry": "Tech",
+					"status": "in person interview"
+				},
+				{
+					"id": 4,
+					"title": "backend engineer",
+					"salary": 180000,
+					"rating": 3,
+					"location": "california",
+					"description": "a bunch of stuff",
+					"companyName": "Ray Bans",
+					"companySize": 15585,
+					"industry": "Hulu",
+					"status": "phone interview"
+				},
+				{
+					"id": 5,
+					"title": "Engineer",
+					"salary": 120000,
+					"rating": 4,
+					"location": "New York",
+					"description": "car stuff",
+					"companyName": "Glassdoor",
+					"companySize": 2000,
+					"industry": "vehicle",
+					"status": "phone interview"
+				},
+				{
+					"id": 5,
+					"title": "Engineer",
+					"salary": 120000,
+					"rating": 4,
+					"location": "New York",
+					"description": "car stuff",
+					"companyName": "Mercedes",
+					"companySize": 2000,
+					"industry": "vehicle",
+					"status": "technical interview"
+				},
+				{
+					"id": 6,
+					"title": "Engineer",
+					"salary": 120000,
+					"rating": 4,
+					"location": "New York",
+					"description": "car stuff",
+					"companyName": "Mercedes",
+					"companySize": 2000,
+					"industry": "vehicle",
+					"status": "offer"
 				}
 			]
 		}
