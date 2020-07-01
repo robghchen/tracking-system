@@ -2,6 +2,10 @@
 
 `git clone git@github.com:robghchen/tracking-system.git`
 
+## get into the app directory with terminal
+
+`cd tracking-system`
+
 ## to go to the main branch
 
 `git checkout master`
