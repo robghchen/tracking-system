@@ -21,6 +21,7 @@
 ## create a new branch off of the master branch to encapsulate new code
 
 `git checkout -b <branch name>`  
+format is `git checkout -b issueNUMBER-title-with-dashes-in-between`
 ie: `git checkout -b 12-make-home-page`
 
 ## run the backend
@@ -42,10 +43,10 @@ hit someone up to pair program, it makes learning more fun
 ## save the work with a message
 
 `git commit -m <message>`  
-the format is `"action(topic): message"`  
-ie: `"feat(home): create home page"`  
-ie: `"fix(dashboard): rating not showing next to company name"`  
-ie: `"style(navbar): change background color to light blue"`
+format is `git commit -m "action(topic): message"`  
+ie: `git commit -m "feat(home): create home page"`  
+ie: `git commit -m "fix(dashboard): rating not showing next to company name"`  
+ie: `git commit -m "style(navbar): change background color to light blue"`
 
 ## send the code to github
 
