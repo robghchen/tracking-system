@@ -1,45 +1,51 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## clone the repo if you have not
 
-## Available Scripts
+`git clone git@github.com:robghchen/tracking-system.git`
 
-In the project directory, you can run:
+## to go to the main branch
 
-### `yarn start`
+`git checkout master`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## to get the latest code from the main branch in github
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+`git pull`
 
-### `yarn test`
+## be sure to install packages any time you do git pull
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+`yarn install`
 
-### `yarn build`
+## create a new branch off of the master branch to encapsulate new code
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+`git checkout -b <branch name>`
+ie: `git checkout -b 12-make-home-page`
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## run the backend
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`npx json-server --watch db.json --port 3001`
 
-### `yarn eject`
+## run the frontend
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+`yarn start`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## work on new code
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+hit someone up to pair program, it makes learning more fun
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## when you're done with the feature and are ready to push it online to github, on the left panel in vscode, click the fork looking icon to visually inspect the code changes you made. if you're satisfied with what you see then in your terminal type:
 
-## Learn More
+`git add .`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## save the work with a message
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-# tracking-system
+`git commit -m <message>`
+ie: `"feat(home): create home page"`
+
+## send the code to github
+
+`git push`
+
+## in the terminal where you did git push, you'll see there is a link to github for the branch you just pushed to, click that link
+
+## click "create new pull request" and i will be notified to review your code, i will either request changes or approve. once approved then you can merge your code into the master branch.
+
+be sure to type `closes #ISSUE_NUMBER` in the description field to link the pull request with the ticket/issue
