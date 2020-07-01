@@ -43,6 +43,10 @@ ie: `"feat(home): create home page"`
 ## send the code to github
 
 `git push`
+or
+`git push origin head`
+or
+`git push origin <branch name>`
 
 ## in the terminal where you did git push, you'll see there is a link to github for the branch you just pushed to, click that link
 
