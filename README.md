@@ -42,7 +42,10 @@ hit someone up to pair program, it makes learning more fun
 ## save the work with a message
 
 `git commit -m <message>`
+the format is `"action(topic): message"`
 ie: `"feat(home): create home page"`
+ie: `"fix(dashboard): rating not showing next to company name"`
+ie: `"style(navbar): change background color to light blue"`
 
 ## send the code to github
 
@@ -54,6 +57,6 @@ or
 
 ## in the terminal where you did git push, you'll see there is a link to github for the branch you just pushed to, click that link
 
-## click "create new pull request" and i will be notified to review your code, i will either request changes or approve. once approved then you can merge your code into the master branch.
+## on the github page click "new pull request", fill in the description then click "create pull request". i will be notified to review your code then i will either request changes or approve your pull request. once approved then you can merge your code into the master branch.
 
 be sure to type `closes #ISSUE_NUMBER` in the description field to link the pull request with the ticket/issue
