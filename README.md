@@ -21,7 +21,7 @@
 ## create a new branch off of the master branch to encapsulate new code
 
 `git checkout -b <branch name>`  
-format is `git checkout -b issueNUMBER-title-with-dashes-in-between`
+format is `git checkout -b issueNUMBER-title-with-dashes-in-between`  
 ie: `git checkout -b 12-make-home-page`
 
 ## run the backend
