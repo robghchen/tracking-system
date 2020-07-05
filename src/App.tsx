@@ -7,6 +7,7 @@ import { Form, Button } from 'semantic-ui-react'
 import { Switch, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import DashboardContainer from './containers/DashboardContainer'
+import Homepage from './containers/Homepage'
 
 // Lesson 2 - React
 // o JSON server mock databse // the command to run the mock database is in commands.txt file inside of the notes folder
@@ -99,6 +100,7 @@ class App extends React.Component {
 		// console.log('render')
 		const { users } = this.state // destructure users from our state which came from our network request to our backend database
 		const { userId } = this.state
+		const isLoggedIn = false
 
 		if (users.length === 0) { // remember to handle edge case where data is not available yet to prevent app from crashing
 			return null;
@@ -111,7 +113,17 @@ class App extends React.Component {
 				<Switch>
 					<Route path='/signup' component={UserUpdate} />
 					<Route path='/dashboard' render={(props) => <DashboardContainer jobs={wesley.jobs} />} />
-					<Route path='/' render={(props) => <JobsContainer jobs={wesley.jobs} getUsers={this.getUsers} />} />
+					<Route path='/' render={(props) => {
+						if (isLoggedIn) {
+							return <JobsContainer jobs={wesley.jobs} getUsers={this.getUsers} />
+						}
+						else {
+							return <Homepage />
+						}
+					}} />
+
+
+
 				</Switch>
 			</div>
 

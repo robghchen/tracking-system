@@ -1,29 +1,29 @@
+@import './containers/Homepage.css';
+
 .job-container {
 	width: 100vw;
 	padding: 5px;
 	margin: 5px;
 	align-content: space-around;
 }
-.add-job-button{
+.add-job-button {
 	padding: 10px;
 	display: flex;
 	flex-direction: row-reverse;
-	margin-right: 150px;	
+	margin-right: 150px;
 }
 
-.job-container .ui.buttons.sort-button-group{
+.job-container .ui.buttons.sort-button-group {
 	margin-bottom: 20px;
 }
-.delete-button{
+.delete-button {
 	display: flex;
 	justify-content: space-between;
-	
 }
 
 .jobs-dnd-container {
 	display: flex;
 	flex-direction: row;
-	
 }
 
 .jobs-dnd-container div {
@@ -49,8 +49,6 @@
 .dashboard-container header p {
 	text-align: center;
 	flex: 1;
-
-
 }
 
 .job-info {
@@ -58,12 +56,12 @@
 	flex-direction: row;
 }
 
-.company-name{
-	padding: 0px 100px 0px 100px
+.company-name {
+	padding: 0px 100px 0px 100px;
 }
 
-.job-details{
-	padding: 0px 100px 0px 100px
+.job-details {
+	padding: 0px 100px 0px 100px;
 }
 /* .job-container {
 	display: flex;
