@@ -206,18 +206,23 @@ class JobsContainer extends React.Component<JobsContainerProps, JobsContainerSta
 			jobsToRender = [...jobs].reverse() // our database is already returning the jobs from oldest to newest, so by doing .reverse() we would return jobs from newest to oldest
 		}
 		console.log('jobsToRender:', jobsToRender)
-
+		
 		return (
 			<div>
+				<span className={'add-job-button'}>
 				<Modal trigger={<Button>Add New Job</Button>}><Modal.Content><JobForm jobs={jobs} /></Modal.Content></Modal>
-				<button onClick={() => this.toggleClick(true)}><FontAwesomeIcon icon={faBars} /></button>
-				<button onClick={() => this.toggleClick(false)}><FontAwesomeIcon icon={faTh} /></button>
+				</span>
 				<div className={'job-container'}>
 					{/* we have to use onClick to tag our buttons with the functions that we created */}
-					<button onClick={() => this.toggleSort('salary')}>Salary</button>
-					<button onClick={() => this.toggleSort('rating')}>Best Rated</button>
-					<button onClick={() => this.toggleSort('location')}>Location</button>
-					<button onClick={() => this.toggleSort('recent')}>Recent</button>
+					<Button.Group className={'sort-button-group'}>
+						<Button onClick={() => this.toggleSort('salary')}>Salary</Button>
+						<Button onClick={() => this.toggleSort('rating')}>Best Rated</Button>
+						<Button onClick={() => this.toggleSort('location')}>Location</Button>
+						<Button onClick={() => this.toggleSort('recent')}>Recent</Button>
+						<Button onClick={() => this.toggleClick(true)}><FontAwesomeIcon icon={faBars} /></Button>
+						<Button onClick={() => this.toggleClick(false)}><FontAwesomeIcon icon={faTh} /></Button>
+					</Button.Group>
+					
 					<Card.Group>
 						{jobsToRender.map(job => {
 							// earlier we were keeping track of what jobs were clicked by updating our state with the id of the jobs that were clicked
@@ -225,7 +230,7 @@ class JobsContainer extends React.Component<JobsContainerProps, JobsContainerSta
 							if (jobsClicked.includes(job.id) === true) {
 								return <JobRow job={job} handleClickJobRow={this.handleClickJobRow} starRating={this.starRating} colorRating={this.colorRating} handleDelete={this.handleDelete} />
 							}
-							return <JobCard job={job} handleClickJobCard={this.handleClickJobCard} starRating={this.starRating} colorRating={this.colorRating} handleDelete={this.handleDelete} />
+							return <JobCard job={job} handleClickJobCard={this.handleClickJobCard} starRating={this.starRating} colorRating={this.colorRating} handleDelete={this.handleDelete} /> 
 						})}
 					</Card.Group>
 				</div>
