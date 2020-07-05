@@ -49,12 +49,25 @@
 .dashboard-container header p {
 	text-align: center;
 	flex: 1;
+
+
 }
 
-/* .job-container {
+.job-info {
 	display: flex;
 	flex-direction: row;
-	flex: wrap;
+}
+
+.company-name{
+	padding: 0px 100px 0px 100px
+}
+
+.job-details{
+	padding: 0px 100px 0px 100px
+}
+/* .job-container {
+	display: flex;
+	flex-wrap: row;
 }
 
 .job-card {
@@ -67,6 +80,7 @@
 	border: 1px solid grey;
 	border-radius: 12px;
 
+
 	height: 250px;
 	flex: 1 0 21%;
 	margin: 5px;
@@ -76,6 +90,7 @@
 	display: flex;
 	flex-direction: row;
 	flex: wrap;
+	justify-items: flex-end;
 
 	width: 100%;
 	padding: 25px;
