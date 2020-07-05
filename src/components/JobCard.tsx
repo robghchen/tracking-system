@@ -1,6 +1,9 @@
 import React from 'react'
 import { Card, Image } from 'semantic-ui-react'
 import { Job } from '../utils/helpers'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
+
 interface JobCardProps {
 	job: Job
 	handleClickJobCard: (job) => void
@@ -24,9 +27,9 @@ class JobCard extends React.Component<JobCardProps, null> {
 				/>
 				<Card.Header>{job.companyName} <span role='img' aria-label='star'>{starRating(job.rating)}</span></Card.Header>
 				<Card.Meta>Status: {job.status}</Card.Meta>
-				<Card.Description>
+				<Card.Description className={'delete-button'}>
 					Salary: ${job.salary}
-					<button onClick={() => handleDelete(job.id)}>DELETE</button>
+					<button onClick={() => handleDelete(job.id)}> <FontAwesomeIcon icon={faTrash} />  </button> 
 				</Card.Description>
 			</Card.Content>
 
