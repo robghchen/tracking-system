@@ -33,8 +33,18 @@
 
 
 }
-.signup-login {
-	color: red !important 
+
+.job-info {
+	display: flex;
+	flex-direction: row;
+}
+
+.company-name{
+	padding: 0px 100px 0px 100px
+}
+
+.job-details{
+	padding: 0px 100px 0px 100px
 }
 /* .job-container {
 	display: flex;
@@ -61,6 +71,7 @@
 	display: flex;
 	flex-direction: row;
 	flex: wrap;
+	justify-items: flex-end;
 
 	width: 100%;
 	padding: 25px;
