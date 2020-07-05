@@ -36,7 +36,9 @@ ie: `git checkout -b 12-make-home-page`
 
 hit someone up to pair program, it makes learning more fun
 
-## when you're done with the feature and are ready to push it online to github, on the left panel in vscode, click the fork looking icon then click through the files you worked on to visually inspect the code changes you made. if you're satisfied with what you see then in your terminal type:
+
+
+## when you're done with the feature and are ready to push it online to github, double check your work on the left panel in vscode, click the fork looking icon then click through the files you worked on to visually inspect the code changes you made. if you're satisfied with what you see then in your terminal type:
 
 `git add .`
 
