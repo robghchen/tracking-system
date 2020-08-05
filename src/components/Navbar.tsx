@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Button, Menu } from 'semantic-ui-react'
+import GoogleLoginButton from './GoogleLoginButton'
 
 class Navbar extends React.Component {
 	render() {
@@ -20,7 +21,7 @@ class Navbar extends React.Component {
 				</Menu.Item>
 				<Menu.Menu position="right">
 					<Menu.Item>
-						<Link to='/login'><Button secondary>Login</Button></Link>
+						<Link to='/login'><GoogleLoginButton /></Link>
 					</Menu.Item>
 					<Menu.Item>
 						<Link to='/signup'><Button primary>Sign Up</Button></Link>
