@@ -11,7 +11,6 @@ import axios from 'axios'
 
 interface JobsContainerProps {
 	jobs: any[]
-	getUsers: any
 }
 
 interface JobsContainerState {
@@ -35,7 +34,7 @@ class JobsContainer extends React.Component<JobsContainerProps, JobsContainerSta
 	}
 
 	handleDelete = async (jobId) => {
-		const { jobs, getUsers } = this.props
+		const { jobs } = this.props
 		const jobsDeleted = [...jobs].filter(job => {
 			console.log('jobId', jobId)
 			if (job.id === jobId) {
@@ -45,7 +44,6 @@ class JobsContainer extends React.Component<JobsContainerProps, JobsContainerSta
 		})
 		try {
 			await axios.patch('http://localhost:3001/users/1', { jobs: [...jobsDeleted] })
-			await getUsers()
 		} catch (error) {
 			console.log(error)
 		}
@@ -206,11 +204,11 @@ class JobsContainer extends React.Component<JobsContainerProps, JobsContainerSta
 			jobsToRender = [...jobs].reverse() // our database is already returning the jobs from oldest to newest, so by doing .reverse() we would return jobs from newest to oldest
 		}
 		console.log('jobsToRender:', jobsToRender)
-		
+
 		return (
 			<div>
 				<span className={'add-job-button'}>
-				<Modal trigger={<Button>Add New Job</Button>}><Modal.Content><JobForm jobs={jobs} /></Modal.Content></Modal>
+					<Modal trigger={<Button>Add New Job</Button>}><Modal.Content><JobForm jobs={jobs} /></Modal.Content></Modal>
 				</span>
 				<div className={'job-container'}>
 					{/* we have to use onClick to tag our buttons with the functions that we created */}
@@ -222,7 +220,7 @@ class JobsContainer extends React.Component<JobsContainerProps, JobsContainerSta
 						<Button onClick={() => this.toggleClick(true)}><FontAwesomeIcon icon={faBars} /></Button>
 						<Button onClick={() => this.toggleClick(false)}><FontAwesomeIcon icon={faTh} /></Button>
 					</Button.Group>
-					
+
 					<Card.Group>
 						{jobsToRender.map(job => {
 							// earlier we were keeping track of what jobs were clicked by updating our state with the id of the jobs that were clicked
@@ -230,7 +228,7 @@ class JobsContainer extends React.Component<JobsContainerProps, JobsContainerSta
 							if (jobsClicked.includes(job.id) === true) {
 								return <JobRow job={job} handleClickJobRow={this.handleClickJobRow} starRating={this.starRating} colorRating={this.colorRating} handleDelete={this.handleDelete} />
 							}
-							return <JobCard job={job} handleClickJobCard={this.handleClickJobCard} starRating={this.starRating} colorRating={this.colorRating} handleDelete={this.handleDelete} /> 
+							return <JobCard job={job} handleClickJobCard={this.handleClickJobCard} starRating={this.starRating} colorRating={this.colorRating} handleDelete={this.handleDelete} />
 						})}
 					</Card.Group>
 				</div>

@@ -12,11 +12,21 @@ class GoogleLoginButton extends React.Component {
 		this.setState({ isAuthenticated: false, user: null, token: '' })
 	};
 
-	googleResponse = (res) => {
-		this.setState({
-			isAuthenticated: true,
-			user: res.profileObj,
-			token: res.accessToken
+	googleResponse = (resp) => {
+		const tokenBlob = new Blob([JSON.stringify({ access_token: resp.accessToken }, null, 2)], { type: 'application/json' });
+		const options: any = {
+			method: 'POST',
+			body: tokenBlob,
+			mode: 'cors',
+			cache: 'default'
+		};
+		fetch('http://localhost:3001/api/v1/auth/google', options).then(r => {
+			const token = r.headers.get('x-auth-token');
+			r.json().then(user => {
+				if (token) {
+					this.setState({ isAuthenticated: true, user, token })
+				}
+			});
 		})
 	};
 
