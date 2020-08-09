@@ -84,7 +84,6 @@ Lesson 2.3 - React Router
 
 Lesson 2.4 - Libraries 
 	- drag & drop library
-	- calendar library
 
 Lesson 3 - Redux
 	- setup
