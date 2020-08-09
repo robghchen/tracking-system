@@ -1,4 +1,9 @@
 {
+	"companies": [
+		{ "id": 1, "name": "Bloomberg" },
+		{ "id": 2, "name": "Toyota" }
+	],
+	"contacts": [{ "id": 1, "phone": "123-456-789" }],
 	"users": [
 		{
 			"id": 1,

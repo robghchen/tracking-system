@@ -36,7 +36,6 @@ class JobsContainer extends React.Component<JobsContainerProps, JobsContainerSta
 	handleDelete = async (jobId) => {
 		const { jobs } = this.props
 		const jobsDeleted = [...jobs].filter(job => {
-			console.log('jobId', jobId)
 			if (job.id === jobId) {
 				return false
 			}
@@ -137,7 +136,6 @@ class JobsContainer extends React.Component<JobsContainerProps, JobsContainerSta
 
 	handleClickReverseHamburger = () => {
 		const jobsIds = []
-		console.log('jobsIds:', jobsIds)
 
 		this.setState({ jobsClicked: jobsIds })
 	}
@@ -150,12 +148,10 @@ class JobsContainer extends React.Component<JobsContainerProps, JobsContainerSta
 			const jobsIds = jobs.map(job => {
 				return job.id
 			})
-			console.log('jobsIds:', jobsIds)
 
 			this.setState({ jobsClicked: jobsIds })
 		} else {
 			const jobsIds = []
-			console.log('jobsIds:', jobsIds)
 
 			this.setState({ jobsClicked: jobsIds })
 		}
@@ -202,7 +198,6 @@ class JobsContainer extends React.Component<JobsContainerProps, JobsContainerSta
 		if (isSortByRecent) {
 			jobsToRender = [...jobs].reverse() // our database is already returning the jobs from oldest to newest, so by doing .reverse() we would return jobs from newest to oldest
 		}
-		console.log('jobsToRender:', jobsToRender)
 
 		return (
 			<div>
@@ -225,9 +220,9 @@ class JobsContainer extends React.Component<JobsContainerProps, JobsContainerSta
 							// earlier we were keeping track of what jobs were clicked by updating our state with the id of the jobs that were clicked
 							// if the job in this loop exists in our jobsClicked array, then we want to show the JobRow instead of the JobCard
 							if (jobsClicked.includes(job.id) === true) {
-								return <JobRow job={job} handleClickJobRow={this.handleClickJobRow} starRating={this.starRating} colorRating={this.colorRating} handleDelete={this.handleDelete} />
+								return <JobRow key={job.id} job={job} handleClickJobRow={this.handleClickJobRow} starRating={this.starRating} colorRating={this.colorRating} handleDelete={this.handleDelete} />
 							}
-							return <JobCard job={job} handleClickJobCard={this.handleClickJobCard} starRating={this.starRating} colorRating={this.colorRating} handleDelete={this.handleDelete} />
+							return <JobCard key={job.id} job={job} handleClickJobCard={this.handleClickJobCard} starRating={this.starRating} colorRating={this.colorRating} handleDelete={this.handleDelete} />
 						})}
 					</Card.Group>
 				</div>

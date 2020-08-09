@@ -1,3 +1,10 @@
+0. create a new app for this tutorial
+
+```
+yarn create react-app nameOfApp
+cd nameOfApp
+```
+
 1. install packages:
 
 ```
@@ -134,3 +141,5 @@ const mapDispatchToProps = dispatch => {
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
 ```
+
+14. you can now access this.props.triggerGetUsersList from anywhere in this component

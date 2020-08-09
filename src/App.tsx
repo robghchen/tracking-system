@@ -9,6 +9,11 @@ import Navbar from './components/Navbar'
 import DashboardContainer from './containers/DashboardContainer'
 import Homepage from './containers/Homepage'
 
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux';
+import { getUsersList } from './actions/userActions'
+import { getCompanyList } from './actions/companyActions'
+
 // Lesson 3 - Redux
 // 	- setup
 // 	- action
@@ -20,22 +25,28 @@ import Homepage from './containers/Homepage'
 // 	Redux https://www.freecodecamp.org/learn/front-end-libraries/redux/
 // 	React and Redux https://www.freecodecamp.org/learn/front-end-libraries/react-and-redux/
 
+interface AppProps {
+	triggerGetCompanyList: () => void,
+	triggerGetUsersList: () => void
+	users: any[]
+}
 
-class App extends React.Component {
+interface AppState {
+	currentUser: any,
+	userId: number
+}
+
+class App extends React.Component<AppProps, AppState> {
 	state = {
 		currentUser: null,
-		userId: ''
+		userId: null,
 	}
 
 	async componentDidMount() {
-		try {
-			const response = await axios.get('http://localhost:3001/users')
-
-			this.setState({ currentUser: response.data[0] })
-		} catch (error) {
-			console.log(error)
-		}
-	}
+		const { triggerGetUsersList } = this.props
+		const users = await triggerGetUsersList()
+		this.setState({ currentUser: users[0] })
+	} t
 
 	render() {
 		const { currentUser } = this.state
@@ -59,4 +70,16 @@ class App extends React.Component {
 	}
 }
 
-export default App;
+const mapStateToProps = state => {
+	return { users: state.usersData.users }
+}
+
+const mapDispatchToProps = dispatch => {
+	return {
+		triggerGetUsersList: () => dispatch(getUsersList()), // without using bindActionCreators
+		triggerGetCompanyList: bindActionCreators(getCompanyList, dispatch) // using bindActionCreators
+	}
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

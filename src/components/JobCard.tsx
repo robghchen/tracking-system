@@ -3,6 +3,8 @@ import { Card, Image } from 'semantic-ui-react'
 import { Job } from '../utils/helpers'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import { getContactsList } from '../actions/contactActions'
+import { connect } from 'react-redux'
 
 interface JobCardProps {
 	job: Job
@@ -15,7 +17,6 @@ interface JobCardProps {
 class JobCard extends React.Component<JobCardProps, null> {
 	render() {
 		const { job, handleClickJobCard, starRating, colorRating, handleDelete } = this.props
-
 
 		return <Card color={colorRating(job.rating)} onClick={() => handleClickJobCard(job)}>
 
@@ -34,15 +35,20 @@ class JobCard extends React.Component<JobCardProps, null> {
 					</button>
 				</Card.Description>
 			</Card.Content>
-
 		</Card>
-
-
-
-
 	}
 }
 
-export default JobCard
+const mapStateToProps = state => {
+	return {
+		contacts: state.contactsData.contacts
+	}
+}
+
+const mapDispatchToProps = (dispatch) => ({
+	triggerGetContactsList: () => dispatch(getContactsList())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(JobCard)
 
 
