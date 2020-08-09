@@ -29,7 +29,9 @@ class JobCard extends React.Component<JobCardProps, null> {
 				<Card.Meta>Status: {job.status}</Card.Meta>
 				<Card.Description className={'delete-button'}>
 					Salary: ${job.salary}
-					<button onClick={() => handleDelete(job.id)}> <FontAwesomeIcon icon={faTrash} />  </button> 
+					<button onClick={() => handleDelete(job.id)}>
+						<FontAwesomeIcon icon={faTrash} />
+					</button>
 				</Card.Description>
 			</Card.Content>
 
