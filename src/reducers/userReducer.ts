@@ -1,16 +1,19 @@
-import { FETCH_USERS_LIST } from '../actions/userActions';
-
 const initialState = {
 	users: [],
 };
 
 function userReducer(state = initialState, action) {
-	console.log('action:', action);
+	console.log('in userReducer');
 	switch (action.type) {
-		case FETCH_USERS_LIST:
+		case 'FETCH_USERS_LIST':
 			return {
 				...state,
-				users: action.users,
+				users: action.payload.users,
+			};
+		case 'DELETE_USERS':
+			return {
+				...state,
+				users: action.payload.users,
 			};
 		default:
 			return state;
