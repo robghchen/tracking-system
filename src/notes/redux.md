@@ -7,7 +7,7 @@ yarn add redux
 yarn add redux-thunk
 ```
 
-2. `add the following to src/index.js`
+2. `add the following to src/index.js (keep the stuff that was already there)`
 
 ```
 import { Provider } from 'react-redux';
@@ -15,7 +15,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk'
 import rootReducer from './reducers/rootReducer'
 
-const composeEnhancers = window['__REDUX_DEVTOOLS_EXTENSION_COMPOSE__'] as typeof compose || compose;
+const composeEnhancers = window['__REDUX_DEVTOOLS_EXTENSION_COMPOSE__'] || compose;
 const store = createStore(
 	rootReducer,
 	composeEnhancers(applyMiddleware(thunk))
@@ -31,9 +31,27 @@ ReactDOM.render(
 );
 ```
 
-3. `mkdir src/actions`
+3. `yarn add json-server` (this has nothing to do with redux, it's just to create a mock database so we can fake getting info from it)
 
-4. `touch src/actions/userActions.js`
+4. `yarn add axios` (this is also unrelated to redux, it's just for making a fetch request and i like axios)
+
+5. create db.json on the top level of app `touch db.json`
+
+6. fill it up with some mock data:
+
+```
+{
+	"users": [
+		{"id": 1, "email": "someemail@email.com"}
+	]
+}
+```
+
+7. `npx json-server --watch db.json --port 3001` (this terminal is now taken, so open a new one)
+
+8. `mkdir src/actions`
+
+9. `touch src/actions/userActions.js`
 
 ```
 import axios from 'axios';
@@ -54,8 +72,8 @@ export const getUsersList = () => {
 }
 ```
 
-5. `mkdir src/reducers`
-6. `touch src/reducers/userReducer.js`
+10. `mkdir src/reducers`
+11. `touch src/reducers/userReducer.js`
 
 ```
 import { FETCH_USERS_LIST } from '../actions/userActions';
@@ -67,9 +85,10 @@ const initialState = {
 function userReducer(state = initialState, action) {
 	switch (action.type) {
 		case FETCH_USERS_LIST:
+			const { users } = action.payload;
 			return {
 				...state,
-				users: action.payload.users,
+				users: users,
 			};
 		default:
 			return state;
@@ -79,7 +98,7 @@ function userReducer(state = initialState, action) {
 export default userReducer;
 ```
 
-7. `touch src/reducers/rootReducer.js`
+12. `touch src/reducers/rootReducer.js`
 
 ```
 import userReducer from './userReducer';
@@ -92,7 +111,7 @@ const rootReducer = combineReducers({
 export default rootReducer;
 ```
 
-8. use your actions and reducers from any component
+13. use your actions and reducers from any component
 
     import the following:
 
