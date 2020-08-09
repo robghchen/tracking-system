@@ -84,10 +84,10 @@ Lesson 2.3 - React Router
 
 Lesson 2.4 - Libraries 
 	- drag & drop library
-	- calendar library
 
 Lesson 3 - Redux
-	- action, payload
+	- setup
+	- action
 	- reducer
 	- mapStateToProps
 	- mapDispatchToProps
@@ -105,9 +105,6 @@ Lesson 4 - Node, Mongodb, Mongoose
 	Homework 
 	Basic Node and Express https://www.freecodecamp.org/learn/apis-and-microservices/basic-node-and-express
 	MongoDB and Mongoose https://www.freecodecamp.org/learn/apis-and-microservices/mongodb-and-mongoose/
-
-During Phase 2
-	- unit testing
 
 After Phase 3
 	- Coding Interview Prep (Thousands of hours of challenges) https://www.freecodecamp.org/learn/

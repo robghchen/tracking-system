@@ -1,4 +1,9 @@
 {
+	"companies": [
+		{ "id": 1, "name": "Bloomberg" },
+		{ "id": 2, "name": "Toyota" }
+	],
+	"contacts": [{ "id": 1, "phone": "123-456-789" }],
 	"users": [
 		{
 			"id": 1,
@@ -17,7 +22,7 @@
 					"status": "in person interview"
 				},
 				{
-					"id": 4,
+					"id": 2,
 					"title": "backend engineer",
 					"salary": 180000,
 					"rating": 3,
@@ -29,10 +34,10 @@
 					"status": "phone interview"
 				},
 				{
-					"id": 5,
+					"id": 3,
 					"title": "Engineer",
 					"salary": 120000,
-					"rating": 4,
+					"rating": 1,
 					"location": "New York",
 					"description": "car stuff",
 					"companyName": "Nissan",
@@ -41,10 +46,10 @@
 					"status": "offer"
 				},
 				{
-					"id": 1,
+					"id": 4,
 					"title": "frontend engineer",
 					"salary": 150000,
-					"rating": 4,
+					"rating": 5,
 					"location": "new york",
 					"description": "a bunch of stuff",
 					"companyName": "Microsoft",
@@ -53,7 +58,7 @@
 					"status": "in person interview"
 				},
 				{
-					"id": 4,
+					"id": 5,
 					"title": "backend engineer",
 					"salary": 180000,
 					"rating": 3,
@@ -65,10 +70,10 @@
 					"status": "technical interview"
 				},
 				{
-					"id": 5,
+					"id": 6,
 					"title": "Engineer",
 					"salary": 120000,
-					"rating": 4,
+					"rating": 2,
 					"location": "New York",
 					"description": "car stuff",
 					"companyName": "BMW",
@@ -77,10 +82,10 @@
 					"status": "technical interview"
 				},
 				{
-					"id": 1,
+					"id": 7,
 					"title": "frontend engineer",
 					"salary": 150000,
-					"rating": 4,
+					"rating": 5,
 					"location": "new york",
 					"description": "a bunch of stuff",
 					"companyName": "Netflix",
@@ -89,10 +94,10 @@
 					"status": "in person interview"
 				},
 				{
-					"id": 4,
+					"id": 8,
 					"title": "backend engineer",
 					"salary": 180000,
-					"rating": 3,
+					"rating": 1,
 					"location": "california",
 					"description": "a bunch of stuff",
 					"companyName": "Ray Bans",
@@ -101,7 +106,7 @@
 					"status": "phone interview"
 				},
 				{
-					"id": 5,
+					"id": 9,
 					"title": "Engineer",
 					"salary": 120000,
 					"rating": 4,
@@ -113,7 +118,7 @@
 					"status": "phone interview"
 				},
 				{
-					"id": 5,
+					"id": 10,
 					"title": "Engineer",
 					"salary": 120000,
 					"rating": 4,
@@ -125,13 +130,13 @@
 					"status": "technical interview"
 				},
 				{
-					"id": 6,
+					"id": 11,
 					"title": "Engineer",
 					"salary": 120000,
-					"rating": 4,
+					"rating": 5,
 					"location": "New York",
 					"description": "car stuff",
-					"companyName": "Mercedes",
+					"companyName": "Tesla",
 					"companySize": 2000,
 					"industry": "vehicle",
 					"status": "offer"

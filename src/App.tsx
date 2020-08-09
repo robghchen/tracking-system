@@ -9,127 +9,77 @@ import Navbar from './components/Navbar'
 import DashboardContainer from './containers/DashboardContainer'
 import Homepage from './containers/Homepage'
 
-// Lesson 2 - React
-// o JSON server mock databse // the command to run the mock database is in commands.txt file inside of the notes folder
-// o state
-// o props
-// o component life cycle
-// o start building the frontend
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux';
+import { getUsersList } from './actions/userActions'
+import { getCompanyList } from './actions/companyActions'
 
-// Assignment
-// 1. When clicking a row, toggle that row back into a card
-// 2. Do the flexboxfroggy.com tutorial, then get the sort buttons to show above the job cards
-// 3. When clicking the hamburger icon, toggle all cards to become rows
-// 4. When clicking the 4 squares icon, toggle all rows to become cards
-// 5. Filter jobs rendered by Job Title
+// Lesson 3 - Redux
+// 	- setup
+// 	- action
+// 	- reducer
+// 	- mapStateToProps
+// 	- mapDispatchToProps
 
-// Lesson 2.1 - More React 
-// 	- tournament challenge	
-// 	- semantic UI
+// 	Homework
+// 	Redux https://www.freecodecamp.org/learn/front-end-libraries/redux/
+// 	React and Redux https://www.freecodecamp.org/learn/front-end-libraries/react-and-redux/
 
+interface AppProps {
+	triggerGetCompanyList: () => void,
+	triggerGetUsersList: () => void
+	users: any[]
+}
 
-class App extends React.Component {
+interface AppState {
+	currentUser: any,
+	userId: number
+}
+
+class App extends React.Component<AppProps, AppState> {
 	state = {
-		users: [],
-		seeForm: false,
-		userId: ''
-	}
-
-	toggleForm = () => {
-		const { seeForm } = this.state
-		this.setState({ seeForm: !seeForm })
-	}
-
-	renderSignUpForm = () => {
-		const { seeForm } = this.state
-		if (seeForm === true) {
-			return <UserUpdate />
-		}
+		currentUser: null,
+		userId: null,
 	}
 
 	async componentDidMount() {
-		try {
-			// a good place to make network requests to get information
-			// console.log('componentDidMount')
-			const response = await axios.get('http://localhost:3001/users') // axios to get backend local host 3001/users
+		const { triggerGetUsersList } = this.props
+		const users = await triggerGetUsersList()
+		this.setState({ currentUser: users[0] })
+	} t
 
-			this.setState({ users: response.data }) // update the state in this file
-		} catch (error) {
-			console.log(error)
-		}
-	}
-
-	async getUsers() {
-		try {
-			// a good place to make network requests to get information
-			// console.log('componentDidMount')
-			const response = await axios.get('http://localhost:3001/users') // axios to get backend local host 3001/users
-
-			this.setState({ users: response.data }) // update the state in this file
-		} catch (error) {
-			console.log(error)
-		}
-	}
-
-	// two other common component life cycle methods:
-
-	// componentDidUpdate(prevProps, prevState) { 
-	// // if our props or state changes, then this function will get called. we'll use this when the need for it comes up, for now just know that it exists
-	// 	console.log("componentDidUpdate")
-	// 	console.log('prevState:', prevState)
-	// 	console.log('currentState:', this.state)
-	// }
-
-	// componentWillUnmount() { 
-	// // reset to default state when we're done with this component (as in the user goes to a different page)
-	// 	console.log('componentWillUnmount')
-	// 	this.setState({
-	// 		users: []
-	// 	})
-	// }
-	handleChange = (event, value) => {
-		console.log('value:', value.name)
-		console.log('value:', value)
-
-		this.setState({
-			[value.name]: value.value
-		})
-	}
 	render() {
-		// anytime we update state with setState(), that will trigger a rerender
-		// console.log('render')
-		const { users } = this.state // destructure users from our state which came from our network request to our backend database
-		const { userId } = this.state
-		const isLoggedIn = false
+		const { currentUser } = this.state
 
-		if (users.length === 0) { // remember to handle edge case where data is not available yet to prevent app from crashing
-			return null;
+		if (!currentUser) {
+			return <div>No database found, try running command: npx json-server --watch db.json --port 3001</div>;
 		}
 
-		const wesley = users[0] // for now, we can hard code the first user, but when we have a real database we'll have to find the user with their login credentials, probably by the user's email
 		return (
 			<div className="App" >
 				<Navbar />
 				<Switch>
 					<Route path='/signup' component={UserUpdate} />
-					<Route path='/dashboard' render={(props) => <DashboardContainer jobs={wesley.jobs} />} />
+					<Route path='/dashboard' render={(props) => <DashboardContainer jobs={currentUser.jobs} />} />
 					<Route path='/' render={(props) => {
-						if (isLoggedIn) {
-							return <JobsContainer jobs={wesley.jobs} getUsers={this.getUsers} />
-						}
-						else {
-							return <Homepage />
-						}
+						return <JobsContainer jobs={currentUser.jobs} />
 					}} />
-
-
-
 				</Switch>
 			</div>
-
 		)
-
 	}
 }
 
-export default App;
+const mapStateToProps = state => {
+	return { users: state.usersData.users }
+}
+
+const mapDispatchToProps = dispatch => {
+	return {
+		triggerGetUsersList: () => dispatch(getUsersList()), // without using bindActionCreators
+		triggerGetCompanyList: bindActionCreators(getCompanyList, dispatch) // using bindActionCreators
+	}
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
