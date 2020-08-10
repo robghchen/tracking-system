@@ -5,7 +5,25 @@ yarn create react-app nameOfApp
 cd nameOfApp
 ```
 
-1. install packages:
+0.1. `yarn add json-server` (this has nothing to do with redux, it's just to create a mock database so we can fake getting info from it)
+
+0.2. `yarn add axios` (this is also unrelated to redux, it's just for making a fetch request and i like axios)
+
+0.3. create db.json on the top level of app `touch db.json`
+
+0.4. fill it up with some mock data:
+
+```
+{
+	"users": [
+		{"id": 1, "email": "someemail@email.com"}
+	]
+}
+```
+
+0.5. `npx json-server --watch db.json --port 3001` (this terminal is now taken, so open a new one)
+
+1. install packages (redux begins here)
 
 ```
 yarn add react-redux
@@ -38,32 +56,13 @@ ReactDOM.render(
 );
 ```
 
-3. `yarn add json-server` (this has nothing to do with redux, it's just to create a mock database so we can fake getting info from it)
+3. `mkdir src/actions`
 
-4. `yarn add axios` (this is also unrelated to redux, it's just for making a fetch request and i like axios)
-
-5. create db.json on the top level of app `touch db.json`
-
-6. fill it up with some mock data:
-
-```
-{
-	"users": [
-		{"id": 1, "email": "someemail@email.com"}
-	]
-}
-```
-
-7. `npx json-server --watch db.json --port 3001` (this terminal is now taken, so open a new one)
-
-8. `mkdir src/actions`
-
-9. `touch src/actions/userActions.js`
+4. `touch src/actions/userActions.js`
 
 ```
 import axios from 'axios';
 
-export const FETCH_USERS_LIST = 'FETCH_USERS_LIST'
 
 export const getUsersList = () => {
 	return async (dispatch, getState) => {
@@ -71,7 +70,7 @@ export const getUsersList = () => {
 			const response = await axios.get('http://localhost:3001/users')
 			const users = response.data
 
-			dispatch({ type: FETCH_USERS_LIST, payload: { users: users } })
+			dispatch({ type: 'FETCH_USERS_LIST', payload: { users: users } })
 		} catch (err) {
 			console.error('err: ', err.message)
 		}
@@ -79,24 +78,23 @@ export const getUsersList = () => {
 }
 ```
 
-10. `mkdir src/reducers`
-11. `touch src/reducers/userReducer.js`
+5. `mkdir src/reducers`
+6. `touch src/reducers/userReducer.js`
 
 ```
-import { FETCH_USERS_LIST } from '../actions/userActions';
-
 const initialState = {
 	users: [],
 };
 
 function userReducer(state = initialState, action) {
 	switch (action.type) {
-		case FETCH_USERS_LIST:
+		case 'FETCH_USERS_LIST': {
 			const { users } = action.payload;
 			return {
 				...state,
 				users: users,
 			};
+		}
 		default:
 			return state;
 	}
@@ -105,7 +103,7 @@ function userReducer(state = initialState, action) {
 export default userReducer;
 ```
 
-12. `touch src/reducers/rootReducer.js`
+7. `touch src/reducers/rootReducer.js`
 
 ```
 import userReducer from './userReducer';
@@ -118,7 +116,7 @@ const rootReducer = combineReducers({
 export default rootReducer;
 ```
 
-13. use your actions and reducers from any component
+8. use your actions and reducers from any component
 
     import the following:
 
@@ -142,4 +140,10 @@ const mapDispatchToProps = dispatch => {
 export default connect(mapStateToProps, mapDispatchToProps)(App);
 ```
 
-14. you can now access this.props.triggerGetUsersList from anywhere in this component
+9. you can now access this.props.triggerGetUsersList from anywhere in this component
+
+10. you can also access this.props.users from anywhere after you call triggerGetUsersList
+
+11. `yarn start`
+
+12. install chrome extension "redux dev-tools" if you don't already have it. use the extension to see if the users array shows up in your global state (aka the store)
