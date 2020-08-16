@@ -69,11 +69,17 @@ Lesson 2.2 - CRUD (Create Read Update Destroy)
 	o practice passing props
 
 Lesson 2.3 - Redux
-	- setup 
-	- mapStateToProps
-	- action, payload
-	- reducer
-	- mapDispatchToProps
+	- finish crud
+	- react router
+		- BrowserRouter
+		- Switch
+		- Route 
+		- Link to
+	- setup redux
+		- action, payload
+		- reducer
+		- mapStateToProps
+		- mapDispatchToProps
 
 	Homework
 	Redux https://www.freecodecamp.org/learn/front-end-libraries/redux/
@@ -81,7 +87,6 @@ Lesson 2.3 - Redux
 	
 Lesson 3 - Unit test
 	- unit testing
-	- react router
 
 Lesson 4 - Node, Mongodb, Mongoose
 	- schema
