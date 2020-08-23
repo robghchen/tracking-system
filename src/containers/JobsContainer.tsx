@@ -10,7 +10,7 @@ import JobForm from '../components/JobForm'
 import axios from 'axios'
 
 interface JobsContainerProps {
-	jobs: any[]
+	currentUser: any
 }
 
 interface JobsContainerState {
@@ -21,7 +21,6 @@ interface JobsContainerState {
 	isSortByRecent: boolean
 	//jobCard Clicked status
 	jobsClicked: any
-
 }
 
 class JobsContainer extends React.Component<JobsContainerProps, JobsContainerState> {
@@ -34,15 +33,10 @@ class JobsContainer extends React.Component<JobsContainerProps, JobsContainerSta
 	}
 
 	handleDelete = async (jobId) => {
-		const { jobs } = this.props
-		const jobsDeleted = [...jobs].filter(job => {
-			if (job.id === jobId) {
-				return false
-			}
-			return true
-		})
+		const { currentUser } = this.props
+
 		try {
-			await axios.patch('http://localhost:3001/users/1', { jobs: [...jobsDeleted] })
+			await axios.patch(`http://localhost:3001/api/v1/users/${currentUser._id}`, { jobId })
 		} catch (error) {
 			console.log(error)
 		}
@@ -125,7 +119,7 @@ class JobsContainer extends React.Component<JobsContainerProps, JobsContainerSta
 	}
 
 	handleClickHamburger = () => {
-		const { jobs } = this.props
+		const { currentUser: { jobs } } = this.props
 
 		const jobsIds = jobs.map(job => {
 			return job.id
@@ -143,7 +137,7 @@ class JobsContainer extends React.Component<JobsContainerProps, JobsContainerSta
 
 	toggleClick = (isHamburger) => {
 		if (isHamburger === true) {
-			const { jobs } = this.props
+			const { currentUser: { jobs } } = this.props
 
 			const jobsIds = jobs.map(job => {
 				return job.id
@@ -163,7 +157,7 @@ class JobsContainer extends React.Component<JobsContainerProps, JobsContainerSta
 	// separation of concerns
 
 	render() {
-		const { jobs } = this.props
+		const { currentUser, currentUser: { jobs } } = this.props
 		const { isSortBySalary, isSortByLocation, isSortByRating, isSortByRecent } = this.state;
 		const { jobsClicked } = this.state;
 
@@ -202,7 +196,7 @@ class JobsContainer extends React.Component<JobsContainerProps, JobsContainerSta
 		return (
 			<div>
 				<span className={'add-job-button'}>
-					<Modal trigger={<Button>Add New Job</Button>}><Modal.Content><JobForm jobs={jobs} /></Modal.Content></Modal>
+					<Modal trigger={<Button>Add New Job</Button>}><Modal.Content><JobForm currentUser={currentUser} /></Modal.Content></Modal>
 				</span>
 				<div className={'job-container'}>
 					{/* we have to use onClick to tag our buttons with the functions that we created */}

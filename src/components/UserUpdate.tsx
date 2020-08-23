@@ -27,7 +27,7 @@ class UserUpdate extends React.Component<{}, UserUpdateState> {
 		}
 
 		try {
-			const response = await axios.post('http://localhost:3001/users/', newUser)
+			const response = await axios.post('http://localhost:3001/api/v1/users/', newUser)
 
 		} catch (error) {
 			console.log(error)

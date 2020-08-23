@@ -3,7 +3,9 @@ import JobsDnd from './JobsDnd';
 
 class DashboardContainer extends React.Component {
 	render() {
-		const { jobs } = this.props; //receive
+		const {
+			currentUser: { jobs },
+		} = this.props; //receive
 		return (
 			<div className="dashboard-container">
 				<h3>Job Dashboard</h3>

@@ -4,7 +4,7 @@ import { Job } from '../utils/helpers'
 import axios from 'axios'
 
 interface JobFormProps {
-	jobs: Job[]
+	currentUser: { _id: string, email: string, jobs: Job[] }
 }
 
 interface JobFormState {
@@ -44,7 +44,7 @@ class JobForm extends React.Component<JobFormProps, JobFormState> {
 	}
 
 	handleSubmitForm = async () => {
-		const { jobs } = this.props
+		const { currentUser } = this.props
 		const { id, title, salary, rating, location, description, companyName, companySize, industry, status } = this.state
 
 		const newJob = {
@@ -59,10 +59,9 @@ class JobForm extends React.Component<JobFormProps, JobFormState> {
 			industry,
 			status,
 		}
-		const updatedJobs = [...jobs, newJob]
 
 		try {
-			await axios.patch('http://localhost:3001/users/1', { jobs: [...updatedJobs] })
+			await axios.patch(`http://localhost:3001/api/v1/users/${currentUser._id}`, { newJob })
 		} catch (error) {
 			console.log(error)
 		}

@@ -60,9 +60,9 @@ class App extends React.Component<AppProps, AppState> {
 				<Navbar />
 				<Switch>
 					<Route path='/signup' component={UserUpdate} />
-					<Route path='/dashboard' render={(props) => <DashboardContainer jobs={currentUser.jobs} />} />
+					<Route path='/dashboard' render={(props) => <DashboardContainer currentUser={currentUser} />} />
 					<Route path='/' render={(props) => {
-						return <JobsContainer jobs={currentUser.jobs} />
+						return <JobsContainer currentUser={currentUser} />
 					}} />
 				</Switch>
 			</div>

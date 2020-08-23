@@ -3,7 +3,7 @@ import axios from 'axios';
 export const getCompanyList = () => {
 	return async (dispatch, getState) => {
 		try {
-			const response = await axios.get('http://localhost:3001/companies');
+			const response = await axios.get('http://localhost:3001/api/v1/companies');
 			const companies = response.data;
 
 			dispatch({
