@@ -67,7 +67,7 @@ import axios from 'axios';
 export const getUsersList = () => {
 	return async (dispatch, getState) => {
 		try {
-			const response = await axios.get('http://localhost:3001/api/v1/users')
+			const response = await axios.get('https://tracking-system-api.herokuapp.com/api/v1/users')
 			const users = response.data
 
 			dispatch({ type: 'FETCH_USERS_LIST', payload: { users: users } })

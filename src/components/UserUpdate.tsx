@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Button, Checkbox } from 'semantic-ui-react'
+import { Form, Button } from 'semantic-ui-react'
 import axios from 'axios'
 
 interface UserUpdateState {
@@ -27,7 +27,7 @@ class UserUpdate extends React.Component<{}, UserUpdateState> {
 		}
 
 		try {
-			const response = await axios.post('http://localhost:3001/api/v1/users/', newUser)
+			await axios.post('https://tracking-system-api.herokuapp.com/api/v1/users/', newUser)
 
 		} catch (error) {
 			console.log(error)

@@ -61,7 +61,7 @@ class JobForm extends React.Component<JobFormProps, JobFormState> {
 		}
 
 		try {
-			await axios.patch(`http://localhost:3001/api/v1/users/${currentUser._id}`, { newJob })
+			await axios.patch(`https://tracking-system-api.herokuapp.com/api/v1/users/${currentUser._id}`, { newJob })
 		} catch (error) {
 			console.log(error)
 		}

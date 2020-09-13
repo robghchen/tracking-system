@@ -1,13 +1,10 @@
 import React from 'react';
 import './App.css';
-import axios from 'axios';
 import JobsContainer from './containers/JobsContainer'
 import UserUpdate from './components/UserUpdate'
-import { Form, Button } from 'semantic-ui-react'
 import { Switch, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import DashboardContainer from './containers/DashboardContainer'
-import Homepage from './containers/Homepage'
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';

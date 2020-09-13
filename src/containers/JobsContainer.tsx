@@ -1,7 +1,7 @@
 import React from 'react'
 import JobCard from '../components/JobCard'
 import JobRow from '../components/JobRow'
-import { Card, Image, Modal, Button } from 'semantic-ui-react'
+import { Card, Modal, Button } from 'semantic-ui-react'
 import { Job } from '../utils/helpers'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
@@ -36,7 +36,7 @@ class JobsContainer extends React.Component<JobsContainerProps, JobsContainerSta
 		const { currentUser } = this.props
 
 		try {
-			await axios.patch(`http://localhost:3001/api/v1/users/${currentUser._id}`, { jobId })
+			await axios.patch(`https://tracking-system-api.herokuapp.com/api/v1/users/${currentUser._id}`, { jobId })
 		} catch (error) {
 			console.log(error)
 		}

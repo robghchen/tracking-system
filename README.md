@@ -36,8 +36,6 @@ ie: `git checkout -b 12-make-home-page`
 
 hit someone up to pair program, it makes learning more fun
 
-
-
 ## when you're done with the feature and are ready to push it online to github, double check your work on the left panel in vscode, click the fork looking icon then click through the files you worked on to visually inspect the code changes you made. if you're satisfied with what you see then in your terminal type:
 
 `git add .`
@@ -63,3 +61,19 @@ or
 ## on the github page click "new pull request", fill in the description then click "create pull request". i will be notified to review your code then i will either request changes or approve your pull request. once approved then you can merge your code into the master branch.
 
 be sure to type `closes #ISSUE_NUMBER` in the description field to link the pull request with the ticket/issue
+
+# Deploying database to Mongodb Cloud and deploying api to Heroku
+
+Visit https://github.com/robghchen/tracking-system-api for instructions.
+
+# Deploying frontend to Netlify
+
+1. Visit https://netlify.com and signup
+2. Click "New site from Git"
+3. Click "GitHub"
+4. Type the repo for your frontend and hit enter
+5. Click your repo
+6. Click "Deploy site"
+7. In VSCode, do a global search for `https://tracking-system-api.herokuapp.com/api/v1/` and replace every instance of that with your new api url. i.e: https://tracking-system-api.herokuapp.com/api/v1/ (notice localhost is http, and heroku is https)
+8. Save file then git add, git commit, and git push this change
+9. If your deploy ever fails, click "Production: master@HEAD Failed" to go to the logs and read through it for the error then fix what needs to be fixed.
