@@ -74,10 +74,11 @@ Visit https://github.com/robghchen/tracking-system-api for instructions.
 4. Type the repo for your frontend and hit enter
 5. Click your repo
 6. Click "Deploy site"
-7. In VSCode, do a global search for `https://tracking-system-api.herokuapp.com/api/v1/` and replace every instance of that with your new api url. i.e: https://tracking-system-api.herokuapp.com/api/v1/ (notice localhost is http, and heroku is https)
-8. Save file then git add, git commit, and git push this change
-9. If your deploy ever fails, click "Production: master@something Failed" to go to the logs and read through it for the error then fix what needs to be fixed.
-10. Click "Overview" tab
-11. Click "Site settings"
-12. Click "Change site name"
-13. Change it to whatever you want, this will be the public url where anyone can visit your site
+7. If your deploy ever fails, click "Production: master@something Failed" to go to the logs and read through it for the error then fix what needs to be fixed.
+8. In VSCode, do a global search for `http://localhost:3001/api/v1/` and replace every instance of that with your new api url. i.e: `https://tracking-system-api.herokuapp.com/api/v1/` (notice localhost is http, and heroku is https)
+9. Use a setInterval to fetch your data like we do here in `App.tsx` to wake heroku up, more details in this blog post https://medium.com/@robertchen234/save-deploying-your-apps-641532dfce7
+10. Save file then git add, git commit, and git push this change
+11. Click "Overview" tab
+12. Click "Site settings"
+13. Click "Change site name"
+14. Change it to whatever you want, this will be the public url where anyone can visit your site
