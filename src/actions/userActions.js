@@ -18,12 +18,8 @@ export const getUsersList = () => {
 export const findUserByID = (userId) => {
 	return async (dispatch, getState) => {
 		const { users } = getState();
-		const currentUser = users.find((user) => {
-			if (user.id === userId) {
-				return user;
-			}
-		});
-		return dispatch({
+		const currentUser = users.find((user) => user.id === userId);
+		dispatch({
 			type: 'FIND_USER',
 			payload: {
 				foundUser: currentUser,
@@ -34,7 +30,7 @@ export const findUserByID = (userId) => {
 
 export const deleteUsers = () => {
 	return async (dispatch) => {
-		return dispatch({
+		dispatch({
 			type: 'DELETE_USERS',
 			payload: {
 				users: [],
