@@ -43,13 +43,13 @@ class App extends React.Component<AppProps, AppState> {
 		const { triggerGetUsersList } = this.props
 		const users = await triggerGetUsersList()
 		this.setState({ currentUser: users[0] })
-	} t
+	}
 
 	render() {
 		const { currentUser } = this.state
 
 		if (!currentUser) {
-			return <div>No database found, try running command: npx json-server --watch db.json --port 3001</div>;
+			return <div>Loading...</div>;
 		}
 
 		return (
