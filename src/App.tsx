@@ -48,8 +48,147 @@ class App extends React.Component<AppProps, AppState> {
 	render() {
 		const { currentUser } = this.state
 
-		if (!currentUser) {
-			return <div>Loading...</div>;
+		if (!currentUser) { // Fake the login
+			this.setState({
+				currentUser: {
+					"id": 1,
+					"email": "wesley@gmail.com",
+					"jobs": [
+						{
+							"id": 1,
+							"title": "frontend engineer",
+							"salary": 150000,
+							"rating": 4,
+							"location": "new york",
+							"description": "a bunch of stuff",
+							"companyName": "Google",
+							"companySize": 46980,
+							"industry": "Tech",
+							"status": "in person interview"
+						},
+						{
+							"id": 2,
+							"title": "backend engineer",
+							"salary": 180000,
+							"rating": 3,
+							"location": "california",
+							"description": "a bunch of stuff",
+							"companyName": "Ray Bans",
+							"companySize": 15585,
+							"industry": "Glasses",
+							"status": "phone interview"
+						},
+						{
+							"id": 3,
+							"title": "Engineer",
+							"salary": 120000,
+							"rating": 1,
+							"location": "New York",
+							"description": "car stuff",
+							"companyName": "Nissan",
+							"companySize": 2000,
+							"industry": "vehicle",
+							"status": "offer"
+						},
+						{
+							"id": 4,
+							"title": "frontend engineer",
+							"salary": 150000,
+							"rating": 5,
+							"location": "new york",
+							"description": "a bunch of stuff",
+							"companyName": "Microsoft",
+							"companySize": 46980,
+							"industry": "Tech",
+							"status": "in person interview"
+						},
+						{
+							"id": 5,
+							"title": "backend engineer",
+							"salary": 180000,
+							"rating": 3,
+							"location": "california",
+							"description": "a bunch of stuff",
+							"companyName": "AirBnB",
+							"companySize": 15585,
+							"industry": "Glasses",
+							"status": "technical interview"
+						},
+						{
+							"id": 6,
+							"title": "Engineer",
+							"salary": 120000,
+							"rating": 2,
+							"location": "New York",
+							"description": "car stuff",
+							"companyName": "BMW",
+							"companySize": 2000,
+							"industry": "vehicle",
+							"status": "technical interview"
+						},
+						{
+							"id": 7,
+							"title": "frontend engineer",
+							"salary": 150000,
+							"rating": 5,
+							"location": "new york",
+							"description": "a bunch of stuff",
+							"companyName": "Netflix",
+							"companySize": 46980,
+							"industry": "Tech",
+							"status": "in person interview"
+						},
+						{
+							"id": 8,
+							"title": "backend engineer",
+							"salary": 180000,
+							"rating": 1,
+							"location": "california",
+							"description": "a bunch of stuff",
+							"companyName": "Ray Bans",
+							"companySize": 15585,
+							"industry": "Hulu",
+							"status": "phone interview"
+						},
+						{
+							"id": 9,
+							"title": "Engineer",
+							"salary": 120000,
+							"rating": 4,
+							"location": "New York",
+							"description": "car stuff",
+							"companyName": "Glassdoor",
+							"companySize": 2000,
+							"industry": "vehicle",
+							"status": "phone interview"
+						},
+						{
+							"id": 10,
+							"title": "Engineer",
+							"salary": 120000,
+							"rating": 4,
+							"location": "New York",
+							"description": "car stuff",
+							"companyName": "Mercedes",
+							"companySize": 2000,
+							"industry": "vehicle",
+							"status": "technical interview"
+						},
+						{
+							"id": 11,
+							"title": "Engineer",
+							"salary": 120000,
+							"rating": 5,
+							"location": "New York",
+							"description": "car stuff",
+							"companyName": "Tesla",
+							"companySize": 2000,
+							"industry": "vehicle",
+							"status": "offer"
+						}
+					]
+				}
+			})
 		}
 
 		return (
