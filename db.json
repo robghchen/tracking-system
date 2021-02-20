@@ -1,34 +1,120 @@
 {
-	"teams": [
-		{
-			"id": 1,
-			"teamName": "A",
-			"points": 0
-		},
-		{
-			"id": 2,
-			"teamName": "B",
-			"points": 0
-		},
-		{
-			"id": 3,
-			"teamName": "C",
-			"points": 0
-		},
-		{
-			"id": 4,
-			"teamName": "D",
-			"points": 0
-		},
-		{
-			"id": 5,
-			"teamName": "E",
-			"points": 0
-		},
-		{
-			"id": 6,
-			"teamName": "F",
-			"points": 0
-		}
-	]
+  "rounds": {
+    "1": [
+      {
+        "id": 1,
+        "teamName": "Goku",
+        "points": 0,
+        "isClicked": true
+      },
+      {
+        "id": 2,
+        "teamName": "WRANK your code",
+        "points": 3,
+        "isClicked": true
+      },
+      {
+        "id": 3,
+        "teamName": "HK Protestor",
+        "points": 1,
+        "isClicked": true
+      },
+      {
+        "id": 4,
+        "teamName": "Decode Me",
+        "points": 2,
+        "isClicked": false
+      },
+      {
+        "id": 5,
+        "teamName": "Code bros",
+        "points": 1,
+        "isClicked": true
+      },
+      {
+        "id": 6,
+        "teamName": "Cancel 2020",
+        "points": 2,
+        "isClicked": false
+      },
+      {
+        "id": 7,
+        "teamName": "Idk",
+        "points": 3,
+        "isClicked": true
+      },
+      {
+        "id": 8,
+        "teamName": "NYU Grad",
+        "points": 0,
+        "isClicked": true
+      },
+      {
+        "id": 9,
+        "teamName": "The Reactors",
+        "points": 3,
+        "isClicked": true
+      }
+    ],
+    "2": [
+      {
+        "id": 2,
+        "teamName": "WRANK your code",
+        "points": 4,
+        "isClicked": false
+      },
+      {
+        "id": 4,
+        "teamName": "Decode Me",
+        "points": 0,
+        "isClicked": true
+      },
+      {
+        "id": 6,
+        "teamName": "Cancel 2020",
+        "points": 4,
+        "isClicked": false
+      },
+      {
+        "id": 7,
+        "teamName": "Idk",
+        "points": 0,
+        "isClicked": true
+      },
+      {
+        "id": 9,
+        "teamName": "The Reactors",
+        "points": 4,
+        "isClicked": false
+      }
+    ],
+    "3": [
+      {
+        "id": 2,
+        "teamName": "WRANK your code",
+        "points": 2,
+        "isClicked": false
+      },
+      {
+        "id": 6,
+        "teamName": "Cancel 2020",
+        "points": 3,
+        "isClicked": true
+      },
+      {
+        "id": 9,
+        "teamName": "The Reactors",
+        "points": 0,
+        "isClicked": false
+      }
+    ],
+    "4": [
+      {
+        "id": 6,
+        "teamName": "Cancel 2020",
+        "points": 0,
+        "isClicked": false
+      }
+    ]
+  }
 }

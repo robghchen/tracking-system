@@ -1,22 +1,70 @@
-.team-container {
+.App {
 	display: flex;
-	flex-direction: column;
-	flex: wrap;
+	text-align: center;
 }
 
-.team-row {
+.tournament-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.teams-container {
 	margin: 12px 0px;
 	display: flex;
 	flex-direction: row;
+	width: 100vw;
 }
 
 .team-card {
-	width: 300px;
-	padding: 15px;
+	min-width: 80px;
+	flex: 1;
 	margin: auto;
-	margin-left: 2px;
-	margin-right: 2px;
-	text-align: center;
+	padding: 16px;
+	margin: 0px 8px 0px 8px;
 	border: 1px solid grey;
-	border-radius: 12px;
+	border-radius: 8px;
+	border: none;
+}
+
+.button {
+	cursor: pointer;
+	padding: 0px 8px 0px 8px;
+}
+
+.gradient-button {
+	flex: 1 1 auto;
+	margin: 10px;
+	padding: 24px;
+	text-align: center;
+	text-transform: uppercase;
+	transition: 0.5s;
+	background-size: 200% auto;
+	color: white;
+	/* text-shadow: 0px 0px 10px rgba(0,0,0,0.2);*/
+	box-shadow: 0 0 20px #eee;
+	border-radius: 10px;
+	border: none;
+	font-size: 16px;
+	font-weight: 700;
+	background-image: linear-gradient(to right, #fbc2eb 0%, #a6c1ee 51%, #fbc2eb 100%);
+}
+
+.gradient-button:hover {
+	background-position: right center; /* change the direction of the change here */
+}
+
+.red {
+	box-shadow: 3px 5px 8px 1px palevioletred;
+}
+
+.blue {
+	box-shadow: 3px 5px 8px 1px skyblue;
+}
+
+.card-clicked {
+	background-color: lightgrey;
+}
+
+.card-not-clicked {
+	background-color: white;
 }

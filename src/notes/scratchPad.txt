@@ -56,9 +56,11 @@ Lesson 2.1 - More React
 	Debugging https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/debugging/
 
 Lesson 2.2 - More React 
-	- back to job tracking app 
+	- build job tracking app dashboard
 	- practice setting state more 
-	- passing props if we get to it
+	- practice passing props
+	- practice debugging with console.log and debugger
+	- semantic UI
 
 Lesson 2.5 - Stability
 	- enforce Typescript
